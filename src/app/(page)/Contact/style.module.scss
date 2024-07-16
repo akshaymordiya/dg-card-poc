@@ -1,0 +1,52 @@
+@import "../../style/variable";
+@import "../../style/mixin";
+
+
+.contact_from_container{
+  padding: 0px 20px;
+  &_wrapper {
+  
+    padding: 40px 30px 120px;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+    margin: 80px auto;
+    width: 100%;
+    @include respond-to("extra_large_desktop") {
+      max-width: 1499px;
+    }
+    .title{
+      text-align: left ;
+      &::before{
+        left: 0;
+      }
+    }
+    &_box {
+      margin-top: 3rem;
+      margin-bottom: 80px;
+      @include respond-to("small_tablet") {
+        margin-bottom: 20px;
+      }
+      @include respond-to("phone") {
+        margin-bottom: 20px;
+      }
+      &_submit_btn {
+        background-color: $primary-color;
+        color: $white-color;
+        float: right;
+        font-family: $rubic-font-family;
+        font-size: 20px;
+        border: none;
+        border-radius: 15px;
+        font-weight: 400;
+        padding: 0px 80px;
+        height: 60px;
+        @include respond-to("small_tablet") {
+          width: 100%;
+        }
+        @include respond-to("phone") {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

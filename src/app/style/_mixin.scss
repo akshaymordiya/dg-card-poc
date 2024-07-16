@@ -1,0 +1,67 @@
+// @mixin respond-to($breakpoint) {
+//   @if $breakpoint == "phone" {
+//     @media (max-width: 576px) {
+//       @content;
+//     }
+//   } @else if $breakpoint == "small_tablet" {
+//     @media (max-width: 767px) {
+//       @content;
+//     }
+//   } @else if $breakpoint == "large_tablet" {
+//     @media (max-width: 992px) {
+//       @content;
+//     }
+//   } @else if $breakpoint == "tablet" {
+//     @media (max-width: 1024px) {
+//       @content;
+//     }
+//   } @else if $breakpoint == "desktop" {
+//     @media (max-width: 1199px) {
+//       @content;
+//     }
+//   } @else if $breakpoint == "desktop_large" {
+//     @media (min-width: 1299px) {
+//       @content;
+//     }
+//   } @else if($breakpoint == "extra_large_desktop") {
+//     @media (min-width: 1400px) {
+//       @content;
+//     }
+//   }
+// }
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'small_phone' {
+    @media (max-width: 400px) {
+       @content; 
+    }
+  } @else if $breakpoint == 'phone' {
+    @media (max-width: 599px) { 
+      @content; 
+    }
+  } @else if $breakpoint == 'small_tablet'{
+      @media (max-width: 768px) {
+        @content;  
+      }
+  } @else if $breakpoint == 'large_tablet'{
+      @media (min-width: 768px) and (max-width: 1100px) {
+        @content;
+      }
+  } @else if $breakpoint == 'desktop' {
+      @media (min-width: 1100px) and (max-width: 1299px) { 
+        @content; 
+      }
+  } @else if $breakpoint == 'desktop_large' {
+    @media (min-width: 1299px) {
+      @content;
+    }
+  } @else if $breakpoint == 'small_devices' {
+    @media (max-width: 1260px) {
+      @content; 
+    }
+  } @else if($breakpoint == "extra_large_desktop") {
+    @media(min-width: 1400px) {
+      @content;
+    }
+  }
+}

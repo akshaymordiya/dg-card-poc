@@ -1,0 +1,93 @@
+@import "../../style/mixin";
+@import "../../style/variable";
+
+.collection_wrapper {
+  margin: 80px auto;
+  width: 100%;
+  padding: 0px 35px;
+  @include respond-to("extra_large_desktop") {
+    max-width: 1499px;
+  }
+  @include respond-to("phone") {
+    padding: 0px 35px;
+  }
+  &_content {
+    grid-gap: 60px;
+    @include respond-to("large_tablet") {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    @include respond-to("small_tablet") {
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+      @include respond-to("phone") {
+        white-space: nowrap;
+        overflow-x: auto;
+        grid-gap: 20px;
+      }
+      @include respond-to("small_phone") {
+        white-space: nowrap;
+        overflow-x: auto;
+        grid-gap: 20px;
+      }
+
+    &_item {
+      @include respond-to("large_tablet") {
+        width: 300px;
+        grid-column: span 1 !important;
+        padding-bottom: 50px;
+      }
+      @include respond-to("small_tablet") {
+        width: 270px;
+        grid-column: span 1 !important;
+        padding-bottom: 50px;
+      }
+      @include respond-to("phone") {
+        width: 200px;
+        grid-column: span 1 !important;
+        padding-bottom: 50px;
+      }
+      @include respond-to("small_phone") {
+        width: 200px;
+        grid-column: span 1 !important;
+        padding-bottom: 50px;
+      }
+      &_info {
+        padding: 0px 20px;
+        margin-top: 20px;
+        h2 {
+          font-family: $Dosis-font-family;
+          font-size: 24px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          @include respond-to("phone") {
+            font-size: 18px;
+          }
+        }
+        .price {
+          font-family: $rubic-font-family;
+          font-size: 20px;
+          font-weight: 400;
+          @include respond-to("phone") {
+            font-size: 16px;
+          }
+        }
+        .Quotenow {
+          background-color: $primary-color;
+          padding: 10px 20px;
+          border-radius: 10px;
+          width: 150px;
+          text-align: center;
+          margin: 23px auto 0px auto;
+          &_text {
+            font-size: 18px;
+            font-family: $rubic-font-family;
+            font-weight: 400;
+            color: $white-color;
+          }
+        }
+      }
+    }
+  }
+}

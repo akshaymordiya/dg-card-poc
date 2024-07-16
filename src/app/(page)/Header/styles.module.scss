@@ -1,0 +1,71 @@
+@import '../../style/variable';
+@import '../../style/mixin';
+
+.header {
+
+  .header_Container {
+    position: relative;
+    .header_image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .header_back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+    .logo_wrapper {
+      background-color: #ffff;
+      position: absolute;
+      left: 12%;
+      top: 56%;
+      height: 170px;
+      width: 170px;
+      padding: 25px;
+      border-radius: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      @include respond-to("small_tablet") {
+        height: 140px;
+        width: 140px;
+        top: 42%;
+      }
+      @include respond-to("phone") {
+        height: 120px;
+        width: 120px;
+        top: 25%;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        border: 8px solid $primary-color;
+        height: 170px;
+        width: 170px;
+        filter: blur(1px);
+        border-radius: 150px;
+        @include respond-to("small_tablet") {
+          height: 140px;
+          width: 140px;
+        }
+        @include respond-to("phone") {
+          height: 120px;
+          width: 120px;
+        }
+      }
+      .header_logo {
+        width: 110px;
+        @include respond-to("small_tablet") {
+          width: 80px;
+        }
+        @include respond-to("phone") {
+          width: 70px;
+        }
+      }
+    }
+  }
+}

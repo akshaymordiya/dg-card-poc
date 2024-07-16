@@ -1,0 +1,129 @@
+@import "../../style/mixin";
+@import "../../style/variable";
+
+.headerview_content {
+  position: relative;
+  margin: 100px auto 0px;
+  padding: 0px 20px;
+  @include respond-to("extra_large_desktop") {
+    max-width: 1499px;
+  }
+  &_col_1 {
+    &_content {
+      @include respond-to("small_tablet") {
+        display: flex;
+        justify-content: space-between;
+      }
+      @include respond-to("phone") {
+        display: flex;
+        justify-content: space-between;
+      }
+      @include respond-to("small_phone") {
+        display: flex;
+        justify-content: space-between;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        h1 {
+          font-size: 48px;
+          font-family: $Dosis-font-family;
+          margin-right: 20px;
+          @include respond-to("phone") {
+            font-size: 32px;
+          }
+        }
+        img {
+          width: 37px;
+          height: 37px;
+        }
+      }
+      span {
+        font-family: $rubic-font-family;
+        color: #8c8c8c;
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+      .mobileshow_button {
+        display: none;
+        @include respond-to("small_tablet") {
+          display: flex;
+        }
+        @include respond-to("phone") {
+          display: flex;
+        }
+        @include respond-to("small_phone") {
+          display: flex;
+        }
+      }
+    }
+  }
+  &_col_2 {
+    text-align: right;
+    &_content {
+      .contact_btn {
+        background-color: #feb543;
+        border-radius: 8px;
+        padding: 8px 10px;
+        color: $white-color;
+      }
+      .mail_btn {
+        background-color: #feb543;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-left: 15px;
+        color: $white-color;
+      }
+      @include respond-to("small_tablet") {
+        display: none;
+      }
+      @include respond-to("phone") {
+        display: none;
+      }
+      @include respond-to("small_phone") {
+        display: none;
+      }
+    }
+    &_note_content {
+      text-align: left;
+      margin-top: 25px;
+      .content_title {
+        background-color: #fff0d9;
+        padding: 17px 27px;
+        border-radius: 20px;
+        h5 {
+          color: $primary-color;
+          font-size: 16px;
+          font-weight: 700;
+          font-family: $rubic-font-family;
+          margin-bottom: 10px;
+        }
+        p {
+          color: $primary-color;
+          font-size: 15px;
+          font-weight: 400;
+          font-family: $rubic-font-family;
+          line-height: 20px;
+        }
+        .conclus {
+          margin-top: 20px;
+          text-align: right;
+        }
+      }
+    }
+    &_mobileshow {
+      display: none;
+      @include respond-to("small_tablet") {
+        display: flex;
+      }
+      @include respond-to("phone") {
+        display: flex;
+      }
+      @include respond-to("small_phone") {
+        display: flex;
+      }
+    }
+  }
+}
+
