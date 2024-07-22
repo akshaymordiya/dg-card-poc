@@ -32,7 +32,8 @@ Grid.Item = ({
 
     return Object.entries(breakpoints).reduce((cls, [key, breakpoint]) => {
       if (breakpoint) {
-        cls += ` ${key}-${breakpoint}`;
+        cls += ` ${styles[`${key}-${breakpoint}`]}`;
+        // cls += `${key}-${breakpoint}`;
       }
 
       return cls;
@@ -40,7 +41,7 @@ Grid.Item = ({
   };
 
   return (
-    <div className={`grid-item ${getClassNames()} ${itemClass}`} {...props}>
+    <div className={`${styles.grid_item} ${getClassNames()} ${itemClass}`} {...props}>
       {children}
     </div>
   );

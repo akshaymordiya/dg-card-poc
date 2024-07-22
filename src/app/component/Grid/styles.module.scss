@@ -5,36 +5,39 @@
   grid-gap: 16px;
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
+
+  .grid_item {
+    height: auto;
+    min-height: fit-content;
+    max-height: fit-content;
+    place-content: center;
+  
+    @for $i from 1 through 12 {
+  
+      @include respond-to('phone') {
+        &.xs-#{$i} { grid-column: span #{$i}; }
+      }
+    
+      @include respond-to('small_tablet') {
+        &.sm-#{$i} { grid-column: span #{$i}; }
+      }
+    
+      @include respond-to('large_tablet') {
+        &.md-#{$i} { grid-column: span #{$i}; }
+      }
+    
+      @include respond-to('desktop') {
+        &.lg-#{$i} { grid-column: span #{$i}; }
+      }
+    
+      @include respond-to('desktop_large') {
+        &.xl-#{$i} {
+          grid-column: span #{$i};
+        }
+      }
+    }
+  }
 }
 
-.grid-item {
-  height: auto;
-  min-height: fit-content;
-  max-height: fit-content;
-  place-content: center;
-}
 
-@for $i from 1 through 12 {
 
-  @include respond-to('phone') {
-    .xs-#{$i} { grid-column: span #{$i}; }
-  }
-
-  @include respond-to('small_tablet') {
-    .sm-#{$i} { grid-column: span #{$i}; }
-  }
-
-  @include respond-to('large_tablet') {
-    .md-#{$i} { grid-column: span #{$i}; }
-  }
-
-  @include respond-to('desktop') {
-    .lg-#{$i} { grid-column: span #{$i}; }
-  }
-
-  @include respond-to('desktop_large') {
-    .xl-#{$i} {
-      grid-column: span #{$i};
-    }  
-  }
-}

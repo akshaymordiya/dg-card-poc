@@ -1,10 +1,15 @@
-
 import Grid from "@/app/component/Grid";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./style.module.scss";
-import FooterInfo from "@/app/component/FooterInfo";
+import { TemplateContext } from "@/app/context/TemplateContext";
+import Link from "next/link";
+// import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
+// import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
+// import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 
 const Footer = () => {
+  const data = useContext(TemplateContext);
+  const { footer } = data;
   return (
     <div className={styles.footer_wrapper}>
       <Grid>
@@ -15,18 +20,13 @@ const Footer = () => {
           xl={8}
           itemClass={styles.footer_wrapper_col_1}
         >
-          <h1>Wearable</h1>
-          {/* {item.split("_").map((word, wordIndex) => (
-                  <span key={wordIndex}>
-                    {word}
-                    {wordIndex < item.title.split("_").length - 1 ? (
-                      <br />
-                    ) : null}
-                  </span>
-                ))} */}
+          <h1>{footer.title.value}</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit.
-            Maxime mollitia, molestiae quas vel
+            {footer?.paragraph?.value?.split("_").map((item, index) => (
+              <span key={index}>
+                {item} <br />
+              </span>
+            ))}
           </p>
         </Grid.Item>
         <Grid.Item
@@ -35,8 +35,24 @@ const Footer = () => {
           lg={4}
           xl={4}
           itemClass={styles.footer_wrapper_col_2}
+        >
+          <div className={styles.footer_wrapper_col_2_content}>
+            {footer?.content?.map((item, index) => (
+              <div
+                key={index}
+                className={styles.footer_wrapper_col_2_content_icon}
               >
-                  <FooterInfo />
+                {/* <Link href="#" className={styles.icon}>
+                  {item?.icon}
+                </Link> */}
+                <span>
+                  {item?.title.split("_").map((item, index) => (
+                    <span key={index}>{item}</span>
+                  ))}
+                </span>
+              </div>
+            ))}
+          </div>
         </Grid.Item>
       </Grid>
     </div>

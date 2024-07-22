@@ -1,11 +1,14 @@
 import Grid from "@/app/component/Grid";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./styles.module.scss";
 import IMG from "@/app/component/Img";
 import SocialIcon from "@/app/component/SocialIcon";
 import ContactModule from "@/app/component/ContactModule";
+import { TemplateContext } from "@/app/context/TemplateContext";
 
 const HeaderView = () => {
+  const data = useContext(TemplateContext);
+  const { headerview } = data;
   return (
     <Grid classNames={styles.headerview_content}>
       <Grid.Item
@@ -19,18 +22,22 @@ const HeaderView = () => {
         <div className={styles.headerview_content_col_1_content}>
           <div className={styles.headerview_content_col_1_mobilecontent}>
             <div className={styles.title}>
-              <h1>Wearable</h1>
-              <IMG src="/assets/check.png" useRawImgTag />
+              <h1>{headerview.title.value}</h1>
+              <IMG src={headerview.img.value} useRawImgTag />
             </div>
             <span>
-              Always ready to serve you <br /> Surat, Gujarat India
+              {headerview?.subtitle?.value?.split("_").map((word, index) => (
+                <span key={index}>
+                  {word} <br />
+                </span>
+              ))}
             </span>
             <div className={styles.mobileshow_button}>
               <SocialIcon />
             </div>
           </div>
           <div className={styles.headerview_content_col_1_content_mobileshow}>
-            <ContactModule />
+            <ContactModule/>
           </div>
         </div>
       </Grid.Item>
@@ -48,17 +55,15 @@ const HeaderView = () => {
 
         <div className={styles.headerview_content_col_2_note_content}>
           <div className={styles.content_title}>
-            <h5>About Us</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-              officia ullam ipsam veritatis mollitia sunt aspernatur quidem
-              sequi necessitatibus dicta quo reprehenderit, nesciunt eos
-              excepturi ut iste, tenetur deserunt nam.
-            </p>
-
+            <h5>{headerview.abouttitle.value}</h5>
+            <p>{headerview.description.value}</p>
             <div className={styles.conclus}>
               <p>
-                - Akshay Moradiya <br /> Proprietor
+                {headerview?.concluse?.value?.split("_").map((word, index) => (
+                  <span key={index}>
+                    {word} <br />
+                  </span>
+                ))}
               </p>
             </div>
           </div>

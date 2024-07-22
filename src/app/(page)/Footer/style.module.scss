@@ -40,8 +40,46 @@
       font-weight: 400;
       line-height: 25px;
       color: #aeaeae;
-    
     }
   }
- 
+  &_col_2 {
+    &_content {
+      padding: 0px;
+      &_icon {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        .icon {
+          height: 80px;
+          margin-right: 20px;
+          padding: 16px 20px;
+          background-color: #fff0d9;
+          border-radius: 14px;
+          @include respond-to("large_tablet") {
+            border-radius: 0px 14px 14px 0px;
+          }
+          @include respond-to("small_tablet") {
+            border-radius: 0px 14px 14px 0px;
+          }
+          @include respond-to("phone") {
+            border-radius: 0px 14px 14px 0px;
+          }
+
+          svg {
+            background-color: $white-color;
+            color: $primary-color;
+            padding: 10px;
+            font-size: 45px;
+            border-radius: 8px;
+          }
+        }
+        span {
+          font-family: $rubic-font-family;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+    }
+  }
 }

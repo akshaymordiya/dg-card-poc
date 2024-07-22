@@ -11,7 +11,7 @@ import Footer from "../Footer";
 export default function Template() {
   return (
     <React.Fragment>
-      <Header />
+      <Header  />
       <HeaderView />
       <Sheduled />
       <Catelog />

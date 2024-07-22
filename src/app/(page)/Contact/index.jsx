@@ -19,7 +19,6 @@ const Contact = ({ data = {} }) => {
   const [messages, setMessages] = useState("");
   const [errors, setErrors] = useState(defaultErrorState);
   const [isProcessing, setIsProcessing] = useState(false);
-  
 
   const clearForm = () => {
     setName("");
@@ -43,7 +42,7 @@ const Contact = ({ data = {} }) => {
       phone: phone, // Same for phone and messages
       messages: messages,
     };
-  
+
     try {
       if (key) {
         await validationSchema.validateAt(key, {
@@ -59,10 +58,8 @@ const Contact = ({ data = {} }) => {
           { abortEarly: false }
         );
       }
-  
-      setErrors((prev) =>
-        key ? { ...prev, [key]: "" } : defaultErrorState
-      );
+
+      setErrors((prev) => (key ? { ...prev, [key]: "" } : defaultErrorState));
       return true;
     } catch (err) {
       const errors = [];
@@ -71,12 +68,12 @@ const Contact = ({ data = {} }) => {
       } else {
         errors.push(...err.inner);
       }
-  
+
       const validationErrors = {};
       errors.forEach((error) => {
         validationErrors[error.path] = getCustomErrorMessage(error.message); // Replace with your error message logic
       });
-  
+
       setErrors(() => ({
         ...defaultErrorState,
         ...validationErrors,
@@ -84,7 +81,7 @@ const Contact = ({ data = {} }) => {
       return false;
     }
   };
-  
+
   function getCustomErrorMessage(message) {
     switch (message) {
       case "Name is required":
@@ -138,48 +135,54 @@ const Contact = ({ data = {} }) => {
 
   return (
     <div className={styles.contact_from_container}>
-    <div className={styles.contact_from_container_wrapper} onKeyDown={handleKeyDown}>
-        <SectionTitle title="Share your thoughts with us" itemclass={styles.title} />
-      <Grid classNames={styles.contact_from_container_wrapper_box}>
-        <Grid.Item xs={12} sm={12} md={12} lg={6} xl={6}>
-          <Input
-            id="name"
-            required
-            value={name}
-            onChange={(e) => handleChange("name", e.target.value)}
-            onBlur={() => validateFeilds("name")}
-            placeholder="Your good name"
-            type="text"
-            error={errors.name}
-          />
-        </Grid.Item>
-        <Grid.Item xs={12} sm={12} md={12} lg={6} xl={6}>
-          <Input
-            id="phone"
-            required
-            value={phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
-            onBlur={() => validateFeilds("phone")}
-            placeholder="Your Phone number (with country code)"
-            type="text"
-            error={errors.email}
-          />
-        </Grid.Item>
-        <Grid.Item xs={12} sm={12} md={12} lg={12} xl={12}>
-          <Input
-            id="messages"
-            textarea
-            value={messages}
-            onChange={(e) => handleChange("messages", e.target.value)}
-            onBlur={() => validateFeilds("messages")}
-            placeholder="Your Message ( max 300 char )"
-            type="text"
-            required
-            error={errors.comment}
-          />
-        </Grid.Item>
-      </Grid>
-      <button
+      <div
+        className={styles.contact_from_container_wrapper}
+        onKeyDown={handleKeyDown}
+      >
+        <SectionTitle
+          title="Share your thoughts with us"
+          itemclass={styles.title}
+        />
+        <Grid classNames={styles.contact_from_container_wrapper_box}>
+          <Grid.Item xs={12} sm={12} md={12} lg={6} xl={6}>
+            <Input
+              id="name"
+              required
+              value={name}
+              onChange={(e) => handleChange("name", e.target.value)}
+              onBlur={() => validateFeilds("name")}
+              placeholder="Your good name"
+              type="text"
+              error={errors.name}
+            />
+          </Grid.Item>
+          <Grid.Item xs={12} sm={12} md={12} lg={6} xl={6}>
+            <Input
+              id="phone"
+              required
+              value={phone}
+              onChange={(e) => handleChange("phone", e.target.value)}
+              onBlur={() => validateFeilds("phone")}
+              placeholder="Your Phone number (with country code)"
+              type="text"
+              error={errors.email}
+            />
+          </Grid.Item>
+          <Grid.Item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Input
+              id="messages"
+              textarea
+              value={messages}
+              onChange={(e) => handleChange("messages", e.target.value)}
+              onBlur={() => validateFeilds("messages")}
+              placeholder="Your Message ( max 300 char )"
+              type="text"
+              required
+              error={errors.comment}
+            />
+          </Grid.Item>
+        </Grid>
+        <button
           type="submit"
           className={styles.contact_from_container_wrapper_box_submit_btn}
           onClick={handleSubmit}
@@ -192,7 +195,7 @@ const Contact = ({ data = {} }) => {
           )}
         </button>
       </div>
-      </div>
+    </div>
   );
 };
 

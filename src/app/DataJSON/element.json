@@ -7,13 +7,271 @@
       "value": "/assets/imagesbg.png"
     },
     "Backbg": {
-        "value":"/assets/bgback.svg"
+      "value": "/assets/bgback.svg"
     },
     "bgBack": {
-        "value":"/assets/bg-back.png"
+      "value": "/assets/bg-back.png"
     },
-    "logo":{
-        "value":"/assets/Logo.png"
+    "logo": {
+      "value": "/assets/Logo.png"
     }
+  },
+  "headerview": {
+    "title": {
+      "value": "Wearable"
+    },
+    "img": {
+      "value": "/assets/check.png"
+    },
+    "subtitle": {
+      "value": "Always ready to serve you_Surat, Gujarat India"
+    },
+    "abouttitle": {
+      "value": "About Us"
+    },
+    "description": {
+      "value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non officia ullam ipsam veritatis mollitia sunt aspernatur quidem sequi necessitatibus dicta quo reprehenderit"
+    },
+    "concluse": {
+      "value": "- Akshay Moradiya_Proprietor"
+    },
+    "content": {
+      "contactinfo": [
+        {
+          "id": 1,
+          "title": "Contact Us",
+          "icon": "<PhoneInTalkOutlinedIcon />",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "title": "Mail Us",
+          "icon": "<EmailOutlinedIcon />",
+          "href": "#"
+        }
+      ]
+    }
+  },
+  "scheduled": {
+    "img": {
+      "value": "/assets/clock.png"
+    },
+    "title": {
+      "value": "Open Till - 10:20pm"
+    },
+    "paragraph": {
+      "value": "Today’s business hours :_7:00am to 10:20pm"
+    },
+    "text": {
+      "value": "Show Less"
+    },
+    "content": [
+      {
+        "id": 1,
+        "title": "Monday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm",
+        "img": "/assets/Vector.png"
+      },
+      {
+        "id": 2,
+        "title": "Tuesday",
+        "starttime": "7:00am to 1:00pm",
+        "img": "/assets/Vector.png",
+        "endtime": "2:00pm to 10:20pm"
+      },
+      {
+        "id": 3,
+        "title": "Wednesday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm"
+      },
+      {
+        "id": 4,
+        "title": "Thursday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm",
+        "img": "/assets/Vector.png"
+      },
+      {
+        "id": 5,
+        "title": "Friday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm",
+        "img": "/assets/Vector.png"
+      },
+      {
+        "id": 6,
+        "title": "Saturday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm",
+        "img": "/assets/Vector.png"
+      },
+      {
+        "id": 7,
+        "title": "Sunday",
+        "starttime": "7:00am to 1:00pm",
+        "endtime": "2:00pm to 10:20pm",
+        "img": "/assets/Vector.png"
+      }
+    ]
+  },
+  "catelog": {
+    "title": {
+      "value": "Catelog"
+    },
+    "content": [
+      {
+        "id": 1,
+        "image": "/assets/catelog-1.png",
+        "title": "Indian Saree"
+      },
+      {
+        "id": 2,
+        "image": "/assets/catelog-2.png",
+        "title": "Indian Kurti"
+      },
+      {
+        "id": 3,
+        "image": "/assets/catelog-3.png",
+        "title": "Skirts & Jacket"
+      },
+      {
+        "id": 4,
+        "image": "/assets/catelog-4.png",
+        "title": "Traditional Dress"
+      },
+      {
+        "id": 5,
+        "image": "/assets/catelog-5.png",
+        "title": "Women’s T-shirts"
+      },
+      {
+        "id": 6,
+        "image": "/assets/catelog-6.png",
+        "title": "T-shirts & Jeans"
+      }
+    ]
+  },
+  "trending": {
+    "title": {
+      "value": "Trending of the week"
+    },
+    "content": [
+      {
+        "id": 1,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      },
+      {
+        "id": 3,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      },
+      {
+        "id": 4,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      },
+      {
+        "id": 5,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      },
+      {
+        "id": 6,
+        "title": "Wearable Black Jacket",
+        "description": "Premium quality jacket with_unique coincept",
+        "interest": "28 People shown interest",
+        "price": "899",
+        "discount": "28",
+        "image": "/assets/trendingimage-1.png"
+      }
+    ]
+  },
+  "collection": {
+    "title": {
+      "value": "Popular Collection"
+    },
+    "content": [
+      {
+        "id": 1,
+        "image": "/assets/image-1.png",
+        "title": "Wearable Men's_Black T-shirt",
+        "price": 899,
+        "btn": "Quote Now"
+      },
+      {
+        "id": 2,
+        "image": "/assets/image-1.png",
+        "title": "Wearable Men's_Black T-shirt",
+        "price": 899,
+        "btn": "Quote Now"
+      },
+      {
+        "id": 3,
+        "image": "/assets/image-1.png",
+        "title": "Wearable Men's_Black T-shirt",
+        "price": 899,
+        "btn": "Quote Now"
+      },
+      {
+        "id": 4,
+        "image": "/assets/image-1.png",
+        "title": "Wearable Men's_Black T-shirt",
+        "price": 899,
+        "btn": "Quote Now"
+      }
+    ]
+  },
+  "footer": {
+    "title": {
+      "value": "Wearable"
+    },
+    "paragraph": {
+      "value": "Lorem ipsum dolor sit amet consectetur_adipisicing elit. Maxime mollitia, molestiae quas vel"
+    },
+    "content": [
+      {
+        "id": 1,
+        "title": "Example@sample.com",
+        "icon": "<AttachEmailOutlinedIcon />"
+      },
+      {
+        "id": 2,
+        "title": "+91 6452013456",
+        "icon": "<PhoneInTalkOutlinedIcon />"
+      },
+      {
+        "id": 3,
+        "title": "Lorem ipsum dolor sit amet_consectetur adipisicing elit.",
+        "icon": "<FmdGoodOutlinedIcon />"
+      }
+    ]
   }
 }

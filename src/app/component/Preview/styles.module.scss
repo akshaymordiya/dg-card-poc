@@ -1,11 +1,15 @@
 .device_wrapper {
-  overflow: hidden;
   &_frame {
-    padding: 20px;
     flex-grow: 1;
     height: 92vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    width: 100%;
+    border: 6px solid #000;
+    margin: auto;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -20px;
+    border-radius: 20px;
+    // border-bottom: none;
   }
   &_nav_btns {
     display: flex;
@@ -14,7 +18,7 @@
 
     button {
       border: none;
-      background-color: #ffff;
+      background-color:transparent;
       margin: 20px;
     }
   }

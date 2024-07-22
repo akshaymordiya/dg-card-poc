@@ -18,19 +18,19 @@
       overflow-x: auto;
     }
     @include respond-to("small_tablet") {
-        white-space: nowrap;
-        overflow-x: auto;
-      }
-      @include respond-to("phone") {
-        white-space: nowrap;
-        overflow-x: auto;
-        grid-gap: 20px;
-      }
-      @include respond-to("small_phone") {
-        white-space: nowrap;
-        overflow-x: auto;
-        grid-gap: 20px;
-      }
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    @include respond-to("phone") {
+      white-space: nowrap;
+      overflow-x: auto;
+      grid-gap: 20px;
+    }
+    @include respond-to("small_phone") {
+      white-space: nowrap;
+      overflow-x: auto;
+      grid-gap: 20px;
+    }
 
     &_item {
       @include respond-to("large_tablet") {

@@ -1,0 +1,17 @@
+{
+  "template": "",
+  "elements": [
+    {
+      "id": "input",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload background Image",
+        "value": "",
+        "required": true,
+        "label":"Upload file"
+      },
+      "bindingId": "img",
+      "componentId": "header"
+    }
+  ]
+}

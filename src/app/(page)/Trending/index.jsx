@@ -1,73 +1,19 @@
 import SectionTitle from "@/app/component/SectionTitle";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./styles.module.scss";
 import Grid from "@/app/component/Grid";
 import IMG from "@/app/component/Img";
 import Button from "@/app/component/Button";
-
-const data = [
-  {
-    id: 1,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-  {
-    id: 2,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-  {
-    id: 3,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-  {
-    id: 4,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-  {
-    id: 5,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-  {
-    id: 6,
-    title: "Wearable Black Jacket",
-    description: "Premium quality jacket with_unique coincept",
-    interest: "28 People shown interest",
-    price: "899",
-    discount: "28",
-    image: "/assets/trendingimage-1.png",
-  },
-];
+import { TemplateContext } from "@/app/context/TemplateContext";
 
 const Trending = () => {
+  const data = useContext(TemplateContext);
+  const { trending } = data;
   return (
     <div className={styles.trending_wrapper}>
-      <SectionTitle title="Trending of the week" />
+      <SectionTitle title={trending?.title?.value} />
       <Grid classNames={styles.trending_wrapper_content}>
-        {data.map((item, index) => {
+        {trending?.content?.map((item, index) => {
           const count = String(index + 1).padStart(2, "0");
           return index % 2 == 0 ? (
             <Grid.Item
@@ -84,12 +30,9 @@ const Trending = () => {
                   <h5>{item.title}</h5>
                   {/* <p>{item.description}</p> */}
                   <p>
-                    {item?.description.split("_").map((word, wordIndex) => (
-                      <span key={wordIndex}>
-                        {word}
-                        {wordIndex < item?.description.split("_").length - 1 ? (
-                          <br />
-                        ) : null}
+                    {item?.description.split("_").map((word,index) => (
+                      <span key={index}>
+                        {word} <br />
                       </span>
                     ))}
                   </p>
@@ -100,7 +43,11 @@ const Trending = () => {
                       ( {item.discount}% off )
                     </span>
                   </div>
-                  <Button text="Quote Now" textclass={styles.Quote} itemclass={styles.Quotenow} />
+                  <Button
+                    text="Quote Now"
+                    textclass={styles.Quote}
+                    itemclass={styles.Quotenow}
+                  />
                 </div>
               </div>
               <div className={styles.trending_wrapper_content_item_col_2}>
@@ -124,12 +71,9 @@ const Trending = () => {
                 <div className={styles.content_text}>
                   <h5>{item.title}</h5>
                   <p>
-                    {item?.description.split("_").map((word, wordIndex) => (
-                      <span key={wordIndex}>
-                        {word}
-                        {wordIndex < item?.description.split("_").length - 1 ? (
-                          <br />
-                        ) : null}
+                    {item?.description.split("_").map((word, index) => (
+                      <span key={index}>
+                        {word} <br />
                       </span>
                     ))}
                   </p>
@@ -140,7 +84,11 @@ const Trending = () => {
                       ( {item.discount}% off )
                     </span>
                   </div>
-                  <Button text="Quote Now" textclass={styles.Quote} itemclass={styles.Quotenow} />
+                  <Button
+                    text="Quote Now"
+                    textclass={styles.Quote}
+                    itemclass={styles.Quotenow}
+                  />
                 </div>
               </div>
             </Grid.Item>
