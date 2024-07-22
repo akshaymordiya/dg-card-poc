@@ -2,9 +2,7 @@
 
 import Image from 'next/image'
 import React from 'react';
-import './index.scss';
-
-const BASE_CLASSNAME = 'image'
+import styles from './styles.module.scss';
 
 const IMG = ({
   src = "",
@@ -20,7 +18,7 @@ const IMG = ({
   const mappedImage = useRawImgTag ? (
     <img
       src={src}
-      className={`${BASE_CLASSNAME} ${imageClasses}`}
+      className={`${styles.image} ${imageClasses}`}
       alt={alt}
     />
   ) : (
@@ -28,14 +26,14 @@ const IMG = ({
       src={src}
       width={width}
       height={height}
-      className={`${BASE_CLASSNAME} ${imageClasses}`}
+      className={`${styles.image} ${imageClasses}`}
       alt={alt}
     />
   )
 
   if(useContainer){
     return (
-      <div className={`${BASE_CLASSNAME}_container ${containerClasses}`}>
+      <div className={`${styles.image}_container ${containerClasses}`}>
         {mappedImage}
       </div>
     )

@@ -1,0 +1,21 @@
+.device_wrapper {
+  overflow: hidden;
+  &_frame {
+    padding: 20px;
+    flex-grow: 1;
+    height: 92vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  &_nav_btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      border: none;
+      background-color: #ffff;
+      margin: 20px;
+    }
+  }
+}

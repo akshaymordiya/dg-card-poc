@@ -1,7 +1,6 @@
 "use client";
 import React from 'react'
-
-import "./index.scss";
+import styles from './styles.module.scss';
 
 const Input = ({
   containerClass = "",
@@ -18,13 +17,13 @@ const Input = ({
 }) => {
 
   const classNames = {
-    input: `input_box_wrapper_input ${inputClass}`,
-    textarea: `input_box_wrapper_textarea ${textareaClass}`
+    input: `${styles.input_box_wrapper_input} ${inputClass}`,
+    textarea: `${styles.input_box_wrapper_textarea} ${textareaClass}`
   } 
   
   return (
-    <div className={`input_box ${containerClass}`}>
-      <div className={`input_box_wrapper`}>
+    <div className={`${styles.input_box} ${containerClass}`}>
+      <div className={styles.input_box_wrapper}>
         {React.createElement(
           textarea ? "textarea" : "input",
           {
@@ -39,7 +38,7 @@ const Input = ({
         )}
       </div>
       {error !== "" && (
-        <p className={`input_box_error_text`}>{error}</p>
+        <p className={styles.input_box_error_text}>{error}</p>
       )}
     </div>
   )

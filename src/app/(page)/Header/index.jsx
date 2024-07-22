@@ -1,26 +1,43 @@
+"use client";
 import IMG from "@/app/component/Img";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./styles.module.scss";
+import { TemplateContext } from "@/app/context/TemplateContext";
 
 const Header = () => {
+
+  const data = useContext(TemplateContext);
+  const { header } = data
   return (
     <div className={styles.header}>
       <div className={styles.header_Container}>
         <IMG
-          src="/assets/bg-header.png"
+          src={header.img.value}
           alt="header-img"
           imageClasses={styles.header_image}
           useRawImgTag
         />
         <IMG
-          src="/assets/bg-back.png"
+          src={header.bgImg.value}
+          alt="header-img"
+          imageClasses={styles.headerimage}
+          useRawImgTag
+        />
+        <IMG
+          src={header.Backbg.value}
+          alt="header-img"
+          imageClasses={styles.headerback}
+          useRawImgTag
+        />
+        <IMG
+          src={header.bgBack.value}
           alt="header-img"
           imageClasses={styles.header_back}
           useRawImgTag
         />
         <div className={styles.logo_wrapper}>
           <IMG
-            src="/assets/Logo.png"
+            src={header.logo.value}
             alt="header-img"
             imageClasses={styles.header_logo}
             useRawImgTag

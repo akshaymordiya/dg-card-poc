@@ -1,11 +1,9 @@
 @import "../../style/variable";
 @import "../../style/mixin";
 
-
-.contact_from_container{
+.contact_from_container {
   padding: 0px 20px;
   &_wrapper {
-  
     padding: 40px 30px 120px;
     border: 1px solid #e5e5e5;
     border-radius: 20px;
@@ -14,10 +12,12 @@
     @include respond-to("extra_large_desktop") {
       max-width: 1499px;
     }
-    .title{
-      text-align: left ;
-      &::before{
-        left: 0;
+    .title {
+      justify-content: start;
+      h2::after {
+        @include respond-to("small_tablet") {
+          right: auto;
+        }
       }
     }
     &_box {
@@ -45,6 +45,7 @@
         }
         @include respond-to("phone") {
           width: 100%;
+          padding: 0px;
         }
       }
     }

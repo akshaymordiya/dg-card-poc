@@ -8,6 +8,9 @@
   @include respond-to("extra_large_desktop") {
     max-width: 1499px;
   }
+  @include respond-to("phone") {
+    margin: 30px auto;
+  }
   &_content {
     grid-gap: 35px !important;
     @include respond-to("small_tablet") {

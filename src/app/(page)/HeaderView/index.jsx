@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import IMG from "@/app/component/Img";
 import SocialIcon from "@/app/component/SocialIcon";
-import Button from "@/app/component/Button";
+import ContactModule from "@/app/component/ContactModule";
 
 const HeaderView = () => {
   return (
@@ -25,13 +25,12 @@ const HeaderView = () => {
             <span>
               Always ready to serve you <br /> Surat, Gujarat India
             </span>
-            <SocialIcon />
+            <div className={styles.mobileshow_button}>
+              <SocialIcon />
+            </div>
           </div>
-          <div
-            className={`${styles.headerview_content_col_2_content} ${styles.mobileshow_button}`}
-          >
-            <Button href="#" text="Contact Us" itemclass={styles.contact_btn} />
-            <Button href="#" text="Mail Us" itemclass={styles.mail_btn} />
+          <div className={styles.headerview_content_col_1_content_mobileshow}>
+            <ContactModule />
           </div>
         </div>
       </Grid.Item>
@@ -44,8 +43,7 @@ const HeaderView = () => {
         itemClass={styles.headerview_content_col_2}
       >
         <div className={styles.headerview_content_col_2_content}>
-          <Button href="#" text="Contact Us" itemclass={styles.contact_btn} />
-          <Button href="#" text="Mail Us" itemclass={styles.mail_btn} />
+          <ContactModule />
         </div>
 
         <div className={styles.headerview_content_col_2_note_content}>

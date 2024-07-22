@@ -8,8 +8,14 @@
   @include respond-to("extra_large_desktop") {
     max-width: 1499px;
   }
+  @include respond-to("phone") {
+    margin: 30px auto;
+  }
   &_content {
     grid-gap: 40px;
+    @include respond-to("phone") {
+      grid-gap: 16px;
+    }
     &_item {
       display: flex;
       justify-content: space-between;
@@ -17,15 +23,21 @@
       box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
       @include respond-to("large_tablet") {
         height: 220px;
-       }
+      }
       @include respond-to("small_tablet") {
-       height: 100%;
-
+        height: 100%;
+      }
+      @include respond-to("phone") {
+        height: 220px;
       }
       &_col_1 {
         width: 60%;
         padding: 25px;
         position: relative;
+        @include respond-to("phone") {
+          width: 50%;
+          padding: 15px;
+        }
         h5 {
           font-size: 24px;
           font-family: $Dosis-font-family;
@@ -42,7 +54,8 @@
             font-size: 20px;
           }
           @include respond-to("phone") {
-            font-size: 16px;
+            font-size: 13px;
+            margin-bottom: 4px;
           }
         }
         p {
@@ -62,7 +75,6 @@
           }
           @include respond-to("small_tablet") {
             font-size: 16px;
-           
           }
           @include respond-to("phone") {
             font-size: 12px;
@@ -85,7 +97,7 @@
             font-size: 16px;
           }
           @include respond-to("phone") {
-            font-size: 12px;
+            font-size: 11px;
           }
         }
         .item_price {
@@ -118,7 +130,7 @@
               font-size: 17px;
             }
             @include respond-to("phone") {
-              font-size: 16px;
+              font-size: 13px;
             }
           }
           .discount {
@@ -129,12 +141,15 @@
             @include respond-to("small_devices") {
               font-size: 14px;
             }
+            @include respond-to("phone") {
+              font-size: 13px;
+            }
           }
         }
         .Quotenow {
           background-color: $btn-secondary;
           border-radius: 5px;
-          color: $secondary-color;
+          color: $secondary-color !important;
           padding: 10px 35px;
           margin: auto;
           font-weight: 600;
@@ -143,10 +158,16 @@
           align-items: center;
           justify-content: center;
           max-width: 200px;
+          .Quote{
+            color: $secondary-color;
+          }
         }
       }
       &_col_2 {
         width: 40%;
+        @include respond-to("phone") {
+          width: 50%;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -160,7 +181,7 @@
 .ribbon_left {
   margin: 15px;
   border: 27px solid #ed6d39;
-  border-bottom: 18px solid transparent;
+  border-bottom: 12px solid transparent;
   width: 22px;
   position: absolute;
   top: -26px;
@@ -177,16 +198,21 @@
     margin: 15px;
     border: 22px solid #ed6d39;
     border-bottom: 9px solid transparent;
-    width: 22px;
-    position: absolute;
     top: -24px;
   }
-  
+  @include respond-to("phone") {
+    margin: 7px;
+    font-size: 14px;
+    border: 16px solid #ed6d39;
+    border-bottom: 5px solid transparent;
+    top: -15px;
+
+  }
 }
 .ribbon_right {
   margin: 15px;
   border: 27px solid #ed6d39;
-  border-bottom: 18px solid transparent;
+  border-bottom: 12px solid transparent;
   width: 22px;
   position: absolute;
   top: -26px;
@@ -202,9 +228,15 @@
     margin: 15px;
     border: 22px solid #ed6d39;
     border-bottom: 9px solid transparent;
-    width: 22px;
-    position: absolute;
     top: -24px;
+  }
+  @include respond-to("phone") {
+    margin: 7px;
+    font-size: 14px;
+    border: 16px solid #ed6d39;
+    border-bottom: 5px solid transparent;
+    top: -15px;
+
   }
 }
 .content_text {
@@ -212,6 +244,8 @@
   margin-top: 60px;
   @include respond-to("small_devices") {
     margin-top: 27px;
-
+  }
+  @include respond-to("phone") {
+    margin-top: 25px;
   }
 }

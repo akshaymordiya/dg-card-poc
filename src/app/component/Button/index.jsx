@@ -1,13 +1,18 @@
 import Link from "next/link";
 import React from "react";
 
-const Button = ({ itemclass = "", href = "", text = "", Icon = "" }) => {
+const Button = ({
+  itemclass = "",
+  href = "",
+  text = "",
+  Icon = "",
+  textclass = "",
+  iconclass = "",
+}) => {
   return (
-    <Link href={href}>
-      <span className={itemclass}>
-        {text}
-        {Icon ? Icon : ""}
-      </span>
+    <Link href={href} className={itemclass}>
+      <span className={textclass}>{text}</span>
+      <span className={iconclass}>{Icon ? Icon : ""}</span>
     </Link>
   );
 };

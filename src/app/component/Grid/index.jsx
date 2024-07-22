@@ -1,12 +1,9 @@
 import React from "react";
-import "./index.scss";
-
-const BASE_CLASSNAME = "grid-container";
+import styles from "./styles.module.scss";
 
 const Grid = ({ children, classNames = "", ...props }) => {
   return (
-    <div className={`${BASE_CLASSNAME} ${classNames}`} {...props}>
-      {" "}
+    <div className={`${styles.grid_container} ${classNames}`} {...props}>
       {children}
     </div>
   );
@@ -26,11 +23,11 @@ Grid.Item = ({
 }) => {
   const getClassNames = () => {
     const breakpoints = {
-      xs: xs || 12,
-      sm: sm || xs,
-      md: md || sm || xs,
-      lg: lg || md || sm || xs,
-      xl: xl || lg || md || sm || xs,
+      'xs': xs || 12,
+      'sm': sm || xs,
+      'md': md || sm || xs,
+      'lg': lg || md || sm || xs,
+      'xl': xl || lg || md || sm || xs,
     };
 
     return Object.entries(breakpoints).reduce((cls, [key, breakpoint]) => {

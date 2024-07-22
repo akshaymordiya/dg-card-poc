@@ -1,0 +1,19 @@
+{
+  "header": {
+    "img": {
+      "value": "/assets/bg-header.png"
+    },
+    "bgImg": {
+      "value": "/assets/imagesbg.png"
+    },
+    "Backbg": {
+        "value":"/assets/bgback.svg"
+    },
+    "bgBack": {
+        "value":"/assets/bg-back.png"
+    },
+    "logo":{
+        "value":"/assets/Logo.png"
+    }
+  }
+}

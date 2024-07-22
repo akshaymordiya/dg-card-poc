@@ -100,7 +100,7 @@ const Trending = () => {
                       ( {item.discount}% off )
                     </span>
                   </div>
-                  <Button text="Quote Now" itemclass={styles.Quotenow} />
+                  <Button text="Quote Now" textclass={styles.Quote} itemclass={styles.Quotenow} />
                 </div>
               </div>
               <div className={styles.trending_wrapper_content_item_col_2}>
@@ -140,7 +140,7 @@ const Trending = () => {
                       ( {item.discount}% off )
                     </span>
                   </div>
-                  <Button text="Quote Now" itemclass={styles.Quotenow} />
+                  <Button text="Quote Now" textclass={styles.Quote} itemclass={styles.Quotenow} />
                 </div>
               </div>
             </Grid.Item>

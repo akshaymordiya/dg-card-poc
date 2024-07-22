@@ -12,13 +12,13 @@
     position: relative;
   
     &_input {
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 1rem;
       width: 100%;
       height:65px;
       min-height: 65px;
       max-height: 65px;
       font-weight: 400;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
       color: $secondary-color;
       border: 1px solid #d9dee9;
@@ -42,12 +42,12 @@
     }
 
     &_textarea {
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 1rem;
       width: 100%;
       height: 180px;
       min-height: 180px;
       font-weight: 400;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
       color: $secondary-color;
       border: 1px solid #d9dee9;
@@ -83,6 +83,6 @@
   }
 }
 
-::placeholder{
-  color: #ABABAB;
-}
+// ::placeholder{
+//   color: #ABABAB;
+// }

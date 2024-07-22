@@ -165,7 +165,7 @@ const Contact = ({ data = {} }) => {
             error={errors.email}
           />
         </Grid.Item>
-        <Grid.Item xs={12} sm={12} md={12} lg={12} xlg={12}>
+        <Grid.Item xs={12} sm={12} md={12} lg={12} xl={12}>
           <Input
             id="messages"
             textarea
