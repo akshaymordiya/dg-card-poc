@@ -1,8 +1,16 @@
 .editor {
+
   &_col_1 {
-    width: 100%;
+    padding: 20px;
+    height: 92vh;
+    place-content: start !important;
+    .input {
+      border: 1px solid #cdcdcd !important;
+      color:  red !important;
+    }
   }
   &_col_2{
     padding: 20px;
+    place-content: start !important;
   }
 }

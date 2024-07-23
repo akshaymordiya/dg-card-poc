@@ -2,16 +2,332 @@
   "template": "",
   "elements": [
     {
-      "id": "input",
+      "id": "header-bg-img",
+      "type": "input-file",
       "props": {
         "type": "file",
-        "placeholder": "Upload background Image",
-        "value": "",
+        "placeholder": "Upload Outer background Image",
+        "value": null,
         "required": true,
-        "label":"Upload file"
+        "label":"Header Outer Background"
       },
       "bindingId": "img",
       "componentId": "header"
+    },
+    {
+      "id": "header-bgBack-img",
+      "type": "input-file",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload inner background Image",
+        "value": null,
+        "required": true,
+        "label":"Header Inner background"
+      },
+      "bindingId": "bgBack",
+      "componentId": "header"
+    },
+    {
+      "id": "header-bgResponsive-img",
+      "type": "input-file",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload background Image",
+        "value": null,
+        "required": true,
+        "label":"Header Responsive Image"
+      },
+      "bindingId": "bgImg",
+      "componentId": "header"
+    },
+    {
+      "id": "header-bgBackResponsive-img",
+      "type": "input-file",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload background Image",
+        "value": null,
+        "required": true,
+        "label":"Header Back Responsive Image"
+      },
+      "bindingId": "Backbg",
+      "componentId": "header"
+    },
+    {
+      "id": "header-logo-img",
+      "type": "input-file",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload background Image",
+        "value": null,
+        "required": true,
+        "label":"Header logo"
+      },
+      "bindingId": "logo",
+      "componentId": "header"
+    },
+    {
+      "id": "headerview-title-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Company Name"
+      },
+      "bindingId": "title",
+      "componentId": "headerview"
+    },    
+    {
+      "id": "headerview-checkBadge-toggle",
+      "type": "toggle",
+      "props": {
+        "checked": true,
+        "label" :"Verify"
+      },
+      "bindingId": "checkBadge",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-subtitle-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Company Tagline"
+      },
+      "bindingId": "subtitle",
+      "componentId": "headerview"
+    },
+
+
+    {
+      "id":"link",
+      "type":"link",
+      "props": {
+        "label": "Link",
+        "url": "",
+        "target": "_blank"
+      },
+      "bindingId": "content",
+      "componentId": "header"
+    },
+
+    
+    {
+      "id": "headerview-abouttitle-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "About Title"
+      },
+      "bindingId": "abouttitle",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-description-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "About Description"
+      },
+      "bindingId": "description",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-concluse-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "About concluse"
+      },
+      "bindingId": "concluse",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-position-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "About position"
+      },
+      "bindingId": "position",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-contactbtn-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "contect text"
+      },
+      "bindingId": "contactbtn",
+      "componentId": "headerview"
+    },
+    {
+      "id": "headerview-mailbtn-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Mail text"
+      },
+      "bindingId": "mailbtn",
+      "componentId": "headerview"
+    },
+    {
+      "id": "scheduled-title-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Scheduled Title"
+      },
+      "bindingId": "title",
+      "componentId": "scheduled"
+    },
+    {
+      "id": "scheduled-paragraph-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Scheduled Description"
+      },
+      "bindingId": "paragraph",
+      "componentId": "scheduled"
+    },
+    {
+      "id": "scheduled-time-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Scheduled time"
+      },
+      "bindingId": "time",
+      "componentId": "scheduled"
+    },
+    {
+      "id": "scheduled-button-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Scheduled button"
+      },
+      "bindingId": "button",
+      "componentId": "scheduled"
+    },
+    {
+      "id": "scheduled-content-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Scheduled button"
+      },
+      "bindingId": "button",
+      "componentId": "scheduled"
+    },
+
+
+
+
+    {
+      "id": "footer-title-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "footer title"
+      },
+      "bindingId": "title",
+      "componentId": "footer"
+    },
+    {
+      "id": "footer-paragraph-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "footer description"
+      },
+      "bindingId": "paragraph",
+      "componentId": "footer"
+    },
+    {
+      "id": "footer-mail-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Footer Mail Id"
+      },
+      "bindingId": "mail",
+      "componentId": "footer"
+    },
+    {
+      "id": "footer-phone-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Footer Phone no."
+      },
+      "bindingId": "phone",
+      "componentId": "footer"
+    },
+    {
+      "id": "footer-titlepara-text",
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "value": "",
+        "required": true,
+        "label": "Footer Paragraph"
+      },
+      "bindingId": "titlepara",
+      "componentId": "footer"
     }
   ]
 }

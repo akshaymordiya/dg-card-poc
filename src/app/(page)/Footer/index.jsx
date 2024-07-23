@@ -3,9 +3,9 @@ import React, { useContext } from "react";
 import styles from "./style.module.scss";
 import { TemplateContext } from "@/app/context/TemplateContext";
 import Link from "next/link";
-// import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
-// import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
-// import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
+import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
+import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 
 const Footer = () => {
   const data = useContext(TemplateContext);
@@ -16,7 +16,7 @@ const Footer = () => {
         <Grid.Item
           sm={12}
           md={12}
-          lg={8}
+          lg={6}
           xl={8}
           itemClass={styles.footer_wrapper_col_1}
         >
@@ -32,26 +32,29 @@ const Footer = () => {
         <Grid.Item
           sm={12}
           md={12}
-          lg={4}
+          lg={6}
           xl={4}
           itemClass={styles.footer_wrapper_col_2}
         >
           <div className={styles.footer_wrapper_col_2_content}>
-            {footer?.content?.map((item, index) => (
-              <div
-                key={index}
-                className={styles.footer_wrapper_col_2_content_icon}
-              >
-                {/* <Link href="#" className={styles.icon}>
-                  {item?.icon}
-                </Link> */}
-                <span>
-                  {item?.title.split("_").map((item, index) => (
-                    <span key={index}>{item}</span>
-                  ))}
-                </span>
-              </div>
-            ))}
+            <div className={styles.footer_wrapper_col_2_content_icon}>
+              <Link href="#" className={styles.icon}>
+                {<AttachEmailOutlinedIcon />}
+              </Link>
+              <span>{footer?.mail?.value}</span>
+            </div>
+            <div className={styles.footer_wrapper_col_2_content_icon}>
+              <Link href="#" className={styles.icon}>
+                {<PhoneInTalkOutlinedIcon />}
+              </Link>
+              <span>{footer?.phone?.value}</span>
+            </div>
+            <div className={styles.footer_wrapper_col_2_content_icon}>
+              <Link href="#" className={styles.icon}>
+                {<FmdGoodOutlinedIcon />}
+              </Link>
+              <span>{footer?.titlepara?.value}</span>
+            </div>
           </div>
         </Grid.Item>
       </Grid>

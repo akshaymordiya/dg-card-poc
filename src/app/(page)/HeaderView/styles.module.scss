@@ -9,7 +9,7 @@
     max-width: 1499px;
   }
   &_col_1 {
-    place-content: start;
+    place-content: start !important;
     &_content {
       @include respond-to("small_tablet") {
         display: flex;
@@ -155,5 +155,52 @@
         justify-content: center;
       }
     }
+   &_content_wrapper {
+      margin-bottom: 25px;
+      display: flex;
+      .contact_btn {
+        background-color: #feb543;
+        border-radius: 8px;
+        padding: 10px;
+        color: $white-color;
+        font-size: 12px;
+        margin: 0px 5px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include respond-to("phone") {
+          border-radius: 50%;
+        }
+        .title_btn {
+          color: $white-color;
+          background-color: #feb543;
+          font-size: 12px;
+          padding: 10px;
+          height: 40px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include respond-to("phone") {
+            display: none;
+          }
+        }
+    
+        svg {
+          margin-left: 6px;
+          vertical-align: middle;
+          font-size: 14px;
+          color: $white-color;
+          margin-top: -2px;
+          @include respond-to("phone") {
+            margin-top: 0px;
+            font-size: 16px;
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+    
   }
 }

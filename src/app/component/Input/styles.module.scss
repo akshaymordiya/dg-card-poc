@@ -26,15 +26,6 @@
       background-color: transparent;
       transition: 0.3s all ease-in-out;
       font-family: $rubic-font-family;
-      // &:focus + .input_box_wrapper_label,
-      // &.filled + .input_box_wrapper_label {
-      //   background-color: $background_bg;
-      //   top: -11px;
-      //   left: 1.5rem;
-      //   padding:0 0.8rem;
-      //   font-size: 20px;
-      //   z-index: 2;
-      // }
   
       &:focus {
         border: 1px solid $secondary-color;
@@ -55,16 +46,7 @@
       background-color: transparent;
       transition: 0.3s all ease-in-out;
       font-family: $rubic-font-family;
-      // &:focus + .input_box_wrapper_label,
-      // &.filled + .input_box_wrapper_label {
-      //   background-color: $background_bg;
-      //   top: -11px;
-      //   left: 1.5rem;
-      //   padding:0 0.8rem;
-      //   font-size: 20px;
-      //   z-index: 2;
-      // }
-  
+    
       &:focus {
         border: 1px solid $secondary-color;
       }

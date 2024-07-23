@@ -19,14 +19,11 @@ const Sheduled = () => {
         itemClass={styles.sheduled_wrapper_col_1}
       >
         <div className={styles.sheduled_wrapper_col_1_content}>
-          <IMG src={scheduled.img.value} useRawImgTag />
+          <IMG src="/assets/clock.png" useRawImgTag />
           <div className={styles.sheduled_wrapper_col_1_title}>
-            <h3>{scheduled.title.value}</h3>
-            {scheduled?.paragraph?.value.split("_").map((word, index) => (
-              <p key={index}>
-                {word} <br />
-              </p>
-            ))}
+            <h3>{scheduled?.title?.value}</h3>
+            <p>{scheduled?.paragraph?.value}</p>
+            <p>{scheduled?.time?.value}</p>
           </div>
         </div>
       </Grid.Item>
@@ -39,7 +36,7 @@ const Sheduled = () => {
         itemClass={styles.sheduled_wrapper_col_2}
       >
         <div className={styles.sheduled_wrapper_col_2_show_btn}>
-          <Button text={scheduled.text.value} itemclass={styles.Showless_btn} />
+          <Button text={scheduled?.button?.value} itemclass={styles.Showless_btn} />
         </div>
       </Grid.Item>
       <Grid.Item

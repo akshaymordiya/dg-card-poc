@@ -6,7 +6,7 @@
     position: relative;
     .header_image {
       width: 100%;
-      height: auto;
+      max-height: 230px;
       object-fit: cover;
       @include respond-to("small_phone") {
         display: none;
@@ -14,8 +14,7 @@
     }
     .headerimage {
       width: 100%;
-      height: auto;
-      // object-fit: cover;
+      max-height: 230px;
       display: none;
       @include respond-to("small_phone") {
         display: block;
@@ -26,6 +25,7 @@
       top: 0;
       left: 0;
       width: 100%;
+      max-height: 260px;
       z-index: -1;
       @include respond-to("small_phone") {
         display: none;
@@ -36,6 +36,7 @@
       top: 0;
       left: 0;
       width: 100%;
+      max-height: 260px;
       z-index: -1;
       display: none;
       @include respond-to("small_phone") {
@@ -46,7 +47,7 @@
       background-color: #ffff;
       position: absolute;
       left: 12%;
-      top: 56%;
+      top: 50%;
       height: 170px;
       width: 170px;
       padding: 25px;

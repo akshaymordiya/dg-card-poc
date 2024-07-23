@@ -14,14 +14,36 @@
     },
     "logo": {
       "value": "/assets/Logo.png"
-    }
+    },
+    "content": [
+      {
+        "id": 1,
+        "image": "/assets/whatsapp.png"
+      },
+      {
+        "id": 2,
+        "image": "/assets/instagram.png"
+      },
+      {
+        "id": 3,
+        "image": "/assets/facebook.png"
+      },
+      {
+        "id": 4,
+        "image": "/assets/youtube.png"
+      },
+      {
+        "id": 5,
+        "image": "/assets/meesho.png"
+      }
+    ]
   },
   "headerview": {
     "title": {
       "value": "Wearable"
     },
-    "img": {
-      "value": "/assets/check.png"
+    "checkBadge": {
+      "value": true
     },
     "subtitle": {
       "value": "Always ready to serve you_Surat, Gujarat India"
@@ -33,36 +55,29 @@
       "value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non officia ullam ipsam veritatis mollitia sunt aspernatur quidem sequi necessitatibus dicta quo reprehenderit"
     },
     "concluse": {
-      "value": "- Akshay Moradiya_Proprietor"
+      "value": "- Akshay Moradiya"
     },
-    "content": {
-      "contactinfo": [
-        {
-          "id": 1,
-          "title": "Contact Us",
-          "icon": "<PhoneInTalkOutlinedIcon />",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "title": "Mail Us",
-          "icon": "<EmailOutlinedIcon />",
-          "href": "#"
-        }
-      ]
+    "position": {
+      "value": "Proprietor"
+    },
+    "contactbtn": {
+      "value": "Contact Us"
+    },
+    "mailbtn": {
+      "value": "Mail Us"
     }
   },
   "scheduled": {
-    "img": {
-      "value": "/assets/clock.png"
-    },
     "title": {
       "value": "Open Till - 10:20pm"
     },
     "paragraph": {
-      "value": "Today’s business hours :_7:00am to 10:20pm"
+      "value": "Today’s business hours :"
     },
-    "text": {
+    "time": {
+      "value": "7:00am to 10:20pm"
+    },
+    "button": {
       "value": "Show Less"
     },
     "content": [
@@ -256,22 +271,14 @@
     "paragraph": {
       "value": "Lorem ipsum dolor sit amet consectetur_adipisicing elit. Maxime mollitia, molestiae quas vel"
     },
-    "content": [
-      {
-        "id": 1,
-        "title": "Example@sample.com",
-        "icon": "<AttachEmailOutlinedIcon />"
-      },
-      {
-        "id": 2,
-        "title": "+91 6452013456",
-        "icon": "<PhoneInTalkOutlinedIcon />"
-      },
-      {
-        "id": 3,
-        "title": "Lorem ipsum dolor sit amet_consectetur adipisicing elit.",
-        "icon": "<FmdGoodOutlinedIcon />"
-      }
-    ]
+    "mail": {
+      "value": "Example@sample.com"
+    },
+    "phone": {
+      "value": "+91 6452013456"
+    },
+    "titlepara": {
+      "value": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    }
   }
 }

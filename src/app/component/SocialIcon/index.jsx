@@ -30,6 +30,7 @@ const data = [
 function SocialIcon() {
   return (
     <div className={styles.social_link}>
+      
       {data.map((item, index) => (
         <Link key={index} href="#" className={styles.social_link_item}>
           <IMG src={item.image} useRawImgTag  />

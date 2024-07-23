@@ -5,7 +5,7 @@ import styles from "./style.module.scss";
 import elementData from "../../DataJSON/element.json";
 import Preview from "@/app/component/Preview";
 import Grid from "@/app/component/Grid";
-import { Input } from "@mui/material";
+import { Input, Switch } from "@mui/material";
 import settingData from "../../DataJSON/settings.json";
 
 const EditorPage = () => {
@@ -14,9 +14,9 @@ const EditorPage = () => {
   const initialSetting = useRef({ ...settingData });
   const [currentSetting, setCurrentSetting] = useState(settingData);
 
-  const [inputValue, setInputValue] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [selectedFileRight, setSelectedFileRight] = useState(null);
+  // const [inputValue, setInputValue] = useState("");
+  // const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFileRight, setSelectedFileRight] = useState(null);
 
   const updateSettings = (cmpId, eleId, value) => {
     setCurrentElementsData((prev) => ({
@@ -30,41 +30,40 @@ const EditorPage = () => {
       },
     }));
   };
-  const handleInputbgChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
 
-  const handleRightImage = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-    updateSettings("headerview", "title", event.target.value);
-  };
+  // const handleInputbgChange = (event) => {
+  //   setSelectedFile(event.target.files[0]);
+  // };
+  // const handleRightImage = (event) => {
+  //   setSelectedFile(event.target.files[0]);
+  // };
+  // const handleInputChange = (event) => {
+  //   setInputValue(event.target.value);
+  //   updateSettings("headerview", "title", event.target.value);
+  // };
+  // const handleSave = async () => {
+  //   if (!selectedFile) {
+  //     return;
+  //   }
+  //   if (!selectedFileRight) {
+  //     return;
+  //   }
 
-  const handleSave = async () => {
-    if (!selectedFile) {
-      return;
-    }
-    if (!selectedFileRight) {
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.readAsDataURL(selectedFile);
-    reader.onload = (e) => {
-      const imageUrl = e.target.result;
-      updateSettings("header", "img", imageUrl);
-      setSelectedFile(null);
-    };
-    const reader1 = new FileReader();
-    reader1.readAsDataURL(selectedFileRight);
-    reader1.onload = (e) => {
-      const imageUrl = e.target.result;
-      updateSettings("headerview", "img", imageUrl);
-      setSelectedFileRight(null);
-    };
-  };
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(selectedFile);
+  //   reader.onload = (e) => {
+  //     const imageUrl = e.target.result;
+  //     updateSettings("header", "img", imageUrl);
+  //     setSelectedFile(null);
+  //   };
+  //   const reader1 = new FileReader();
+  //   reader1.readAsDataURL(selectedFileRight);
+  //   reader1.onload = (e) => {
+  //     const imageUrl = e.target.result;
+  //     updateSettings("headerview", "img", imageUrl);
+  //     setSelectedFileRight(null);
+  //   };
+  // };
 
   const updateElementData = (setting, value) => {
     setCurrentElementsData((prev) => ({
@@ -79,45 +78,110 @@ const EditorPage = () => {
     }));
   };
 
-  const updateCurrentSettings = (setting, targetValue = {}) => {
-    let updateSettingsData = {};
-    setCurrentSetting((prev) =>
-      prev.elements.map((ele) => {
+  const updateCurrentSettings = (
+    setting,
+    updatedSettingData = {},
+    updatedElementData = {}
+  ) => {
+    setCurrentSetting((prev) => ({
+      ...prev,
+      elements: prev.elements.map((ele) => {
         if (ele.id === setting.id) {
-          updateSettingsData = {
+          const settingObj = {
             ...ele,
             props: {
               ...ele.props,
-              ...targetValue,
+              ...updatedSettingData,
             },
           };
-          return updateSettingsData;
+          updateElementData(settingObj, updatedElementData);
+          return settingObj;
         }
-
         return ele;
-      })
-    );
-
-    updateElementData(updateSettingsData, targetValue);
+      }),
+    }));
   };
 
-  console.log("currentElemenetsData", currentElemenetsData);
-  console.log("currentElemenetsData", currentSetting);
+  const getSettingComponent = (setting, key) => {
+    const defaultValueOfCurrentSetting =
+      initialDataValue.current[setting.componentId][setting.bindingId]?.value;
+    switch (setting.type) {
+      case "input-file": {
+        return (
+          <>
+          {/* {setting.componentId} */}
+          <div style={{ marginBottom: "15px" }}>
+            <label htmlFor={key}>{setting.props.label} :</label> <br />
+            <Input
+              key={key}
+              {...setting.props}
+              value={setting.props.value}
+              onChange={({ target: { files } }) => {
+                const file = files[0];
+                if (file) {
+                  updateCurrentSettings(
+                    setting,
+                    { data: file },
+                    { value: URL.createObjectURL(file) }
+                  );
+                } else {
+                  console.log("initialDataValue", initialDataValue);
+                  updateCurrentSettings(
+                    setting,
+                    { data: null },
+                    {
+                      value: defaultValueOfCurrentSetting,
+                    }
+                  );
+                }
+              }}
+            />
+          </div>
+          </>
+        );
+      }
 
-  const getSettingComponent = (setting) => {
-    switch (setting.id) {
       case "input": {
         return (
-          <Input
-            {...setting.props}
-            value={elementData[setting.componentId][setting.bindingId]}
-            onChange={({ target: { file } }) =>
-              updateCurrentSettings(setting, { value: file[0] })
-            }
-            // onChange={(event) =>
-            //   updateCurrentSettings(setting, { value: event.target.files[0] })
-            // }
-          />
+          <>
+          {/* {setting.componentId} */}
+          <div style={{ marginBottom: "15px" }}>
+            <label htmlFor={key}>{setting.props.label} :</label> <br />
+            <Input
+              key={key}
+              {...setting.props}
+              value={setting.props.value}
+              onChange={({ target: { value } }) => {
+                if (!value) {
+                  updateCurrentSettings(
+                    setting,
+                    { value: "" },
+                    { value: defaultValueOfCurrentSetting }
+                  );
+                } else {
+                  updateCurrentSettings(setting, { value }, { value });
+                }
+              }}
+            />
+          </div>
+          </>
+        );
+      }
+      case "toggle": {
+        return (
+          <>
+            {/* {setting.componentId} */}
+            <label htmlFor={key}>{setting.props.label} :</label> 
+            <Switch
+              key={key}
+              {...setting.props}
+              onChange={({ target: { checked } }) => {
+                console.log("checked", checked);
+                updateCurrentSettings(setting, { checked }, { value: checked });
+              }}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </>
         );
       }
 
@@ -126,6 +190,9 @@ const EditorPage = () => {
       }
     }
   };
+
+  console.log("currentSetting.element", currentSetting.elements);
+  console.log("currentElemenetsData", currentElemenetsData);
 
   return (
     <Grid classNames={styles.editor}>
@@ -137,25 +204,12 @@ const EditorPage = () => {
         xl={6}
         itemClass={styles.editor_col_1}
       >
-        {currentSetting.elements.map((setting) => getSettingComponent(setting))}
-        {/* <EditorSet />
-        <div>
-          <label htmlFor="headerImage">Header background (Image):</label>
-          <Input type="file" onChange={handleInputbgChange} />
-        </div>
+        {currentSetting.elements.map((setting, index) =>
+          getSettingComponent(setting, `${index}-setting-${setting.id}`)
+        )}
 
-        <div>
-          <label htmlFor="">Header title</label>
-          <Input type="text" value={inputValue} onChange={handleInputChange} />
-        </div>
-        <div>
-          <div>
-            <label htmlFor="headerImage">Header Right Image</label>
-            <Input type="file" onChange={handleRightImage} />
-          </div>
-        </div>
 
-        <button onClick={handleSave}>Save Changes</button> */}
+        {/* <button onClick={handleSave}>Save Changes</button> */}
       </Grid.Item>
       <Grid.Item
         xs={12}

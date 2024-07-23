@@ -12,9 +12,12 @@ const IMG = ({
   imageClasses = "",
   useContainer = false,
   useRawImgTag = false,
-  containerClasses = ""
+  containerClasses = "",
+  canLog = false
 }) => {
-
+  if (canLog) {
+    console.log("src", src);
+  }
   const mappedImage = useRawImgTag ? (
     <img
       src={src}

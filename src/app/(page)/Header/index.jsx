@@ -16,6 +16,7 @@ const Header = () => {
           alt="header-img"
           imageClasses={styles.header_image}
           useRawImgTag
+          canLog
         />
         <IMG
           src={header.bgImg.value}
