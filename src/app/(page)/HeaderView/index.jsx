@@ -1,4 +1,3 @@
-
 import Grid from "@/app/component/Grid";
 import React, { useContext } from "react";
 import styles from "./styles.module.scss";
@@ -8,6 +7,7 @@ import { TemplateContext } from "@/app/context/TemplateContext";
 import Button from "@/app/component/Button";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import Link from "next/link";
 
 const HeaderView = () => {
   const data = useContext(TemplateContext);
@@ -38,7 +38,17 @@ const HeaderView = () => {
               ))}
             </span>
             <div className={styles.mobileshow_button}>
-              <SocialIcon />
+              <div className={styles.social_link}>
+                {headerview?.content?.value.map((item, index) => (
+                  <Link
+                    key={index}
+                    href="#"
+                    className={styles.social_link_item}
+                  >
+                    <IMG src={item.value} useRawImgTag />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
           <div className={styles.headerview_content_col_1_content_mobileshow}>
@@ -97,7 +107,13 @@ const HeaderView = () => {
           </div>
         </div>
         <div className={styles.headerview_content_col_2_mobileshow}>
-          <SocialIcon />
+          <div className={styles.social_link}>
+            {headerview?.content?.value?.map((item, index) => (
+              <Link key={index} href="#" className={styles.social_link_item}>
+                <IMG src={item.value} useRawImgTag />
+              </Link>
+            ))}
+          </div>
         </div>
       </Grid.Item>
     </Grid>

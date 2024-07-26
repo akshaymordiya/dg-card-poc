@@ -48,14 +48,14 @@ const Sheduled = () => {
         itemClass={styles.sheduled_wrapper_col_3}
       >
         <div className={styles.sheduled_wrapper_col_3_content}>
-          {scheduled.content.map((item, index) => (
+          {scheduled?.content?.value.map((item, index) => (
             <div className={styles.content_box} key={index}>
               <div className={styles.content_box_title}>
                 <h4>{item?.title}</h4>
                 <IMG src={item?.img} useRawImgTag />
               </div>
               <div className={styles.content_box_time}>
-                <span>{item?.starttime}</span> <br />
+                <span>{item?.value}</span> <br />
                 <span>{item?.endtime}</span>
               </div>
             </div>

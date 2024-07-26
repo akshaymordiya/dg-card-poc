@@ -13,7 +13,7 @@ function Collection() {
     <div className={styles.collection_wrapper}>
       <SectionTitle title={collection.title.value} />
       <Grid classNames={styles.collection_wrapper_content}>
-        {collection?.content?.map((item) => (
+        {collection?.content?.value?.map((item) => (
           <Grid.Item
             lg={3}
             xl={3}

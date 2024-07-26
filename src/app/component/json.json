@@ -71,8 +71,9 @@
         }
       ]
     },
+
     "HeaderView": {
-      "title": "Header View",
+      "title": "HeaderView",
       "settings": [
         {
           "id": "headerview-title-text",
@@ -187,86 +188,6 @@
           },
           "bindingId": "mailbtn",
           "componentId": "headerview"
-        },
-        {
-          "id": "headerview-social_icon_btns",
-          "type": "loop",
-          "props": {
-            "value": [
-              {
-                "id": "headerview-social_icon_whatsapp",
-                "type": "input-file",
-                "props": {
-                  "type": "file",
-                  "placeholder": "Upload whatsappIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Whatsapp Icon"
-                },
-                "elementBindingId": 1
-              },
-              {
-                "id": "headerview-social_icon_instagram",
-                "type": "input-file",
-                "props": {
-                  "type": "file",
-                  "placeholder": "Upload InstagramIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Instagram Icon"
-                },
-                "elementBindingId": 2
-              },
-              {
-                "id": "headerview-social_icon_facebook",
-                "type": "input-file",
-                "props": {
-                  "type": "file",
-                  "placeholder": "Upload FacebookIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Facebook Icon"
-                },
-                "elementBindingId": 3
-              },
-              {
-                "id": "headerview-social_icon_youtube",
-                "type": "input-file",
-                "props": {
-                  "type": "file",
-                  "placeholder": "Upload YoutubeIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Youtube Icon"
-                },
-                "elementBindingId": 4
-              },
-              {
-                "id": "headerview-social_icon_meesho",
-                "type": "input-file",
-                "props": {
-                  "type": "file",
-                  "placeholder": "Upload MeeshoIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Meesho Icon"
-                },
-                "elementBindingId": 5
-              }
-            ]
-          },
-          "bindingId": "content",
-          "componentId": "headerview"
         }
       ]
     },
@@ -314,7 +235,7 @@
           "componentId": "scheduled"
         },
         {
-          "id": "scheduled-content-text",
+          "id": "scheduled-button-text",
           "type": "input",
           "props": {
             "type": "text",
@@ -327,112 +248,21 @@
           "componentId": "scheduled"
         },
         {
-          "id": "scheduled-dropdown",
-          "type": "time",
+          "id": "scheduled-content-text",
+          "type": "input",
           "props": {
-            "value": [
-              {
-                "id": "scheduled-dropdown_monday",
-                "type": "input",
-                "props": {
-                  "type": "time",
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Monday"
-                },
-                "elementBindingId": 1
-              },
-              {
-                "id": "scheduled-dropdown_tuesday",
-                "type": "input",
-                "props": {
-                  "type": "time",
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Tuesday"
-                },
-                "elementBindingId": 2
-              },
-              {
-                "id": "scheduled-dropdown_wednesday",
-                "type": "input",
-                "props": {
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Wednesday"
-                },
-                "elementBindingId": 3
-              },
-              {
-                "id": "scheduled-dropdown_thursday",
-                "type": "input",
-                "props": {
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Thursday"
-                },
-                "elementBindingId": 4
-              },
-              {
-                "id": "scheduled-dropdown_friday",
-                "type": "input",
-                "props": {
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Friday"
-                },
-                "elementBindingId": 5
-              },
-              {
-                "id": "scheduled-dropdown_saturday",
-                "type": "input",
-                "props": {
-                  "type": "text",
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Saturday"
-                },
-                "elementBindingId": 6
-              },
-              {
-                "id": "scheduled-dropdown_sunday",
-                "type": "input",
-                "props": {
-                  "value": null,
-                  "clockType": "",
-                  "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
-                  "required": true,
-                  "label": "Sunday"
-                },
-                "elementBindingId": 7
-              }
-            ]
+            "type": "text",
+            "placeholder": "Enter text",
+            "value": "",
+            "required": true,
+            "label": "Scheduled button"
           },
-          "bindingId": "content",
+          "bindingId": "button",
           "componentId": "scheduled"
         }
       ]
     },
-
+    
     "Footer": {
       "title": "Footer",
       "settings": [

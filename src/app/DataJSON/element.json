@@ -14,29 +14,7 @@
     },
     "logo": {
       "value": "/assets/Logo.png"
-    },
-    "content": [
-      {
-        "id": 1,
-        "image": "/assets/whatsapp.png"
-      },
-      {
-        "id": 2,
-        "image": "/assets/instagram.png"
-      },
-      {
-        "id": 3,
-        "image": "/assets/facebook.png"
-      },
-      {
-        "id": 4,
-        "image": "/assets/youtube.png"
-      },
-      {
-        "id": 5,
-        "image": "/assets/meesho.png"
-      }
-    ]
+    }
   },
   "headerview": {
     "title": {
@@ -65,6 +43,40 @@
     },
     "mailbtn": {
       "value": "Mail Us"
+    },
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "title": "Whatsapp",
+          "value": "/assets/whatsapp.png",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "title": "Instagram",
+          "value": "/assets/instagram.png",
+          "href": "#"
+        },
+        {
+          "id": 3,
+          "title": "Facebook",
+          "value": "/assets/facebook.png",
+          "href": "#"
+        },
+        {
+          "id": 4,
+          "title": "Youtube",
+          "value": "/assets/youtube.png",
+          "href": "#"
+        },
+        {
+          "id": 5,
+          "title": "Meesho",
+          "value": "/assets/meesho.png",
+          "href": "#"
+        }
+      ]
     }
   },
   "scheduled": {
@@ -80,189 +92,198 @@
     "button": {
       "value": "Show Less"
     },
-    "content": [
-      {
-        "id": 1,
-        "title": "Monday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm",
-        "img": "/assets/Vector.png"
-      },
-      {
-        "id": 2,
-        "title": "Tuesday",
-        "starttime": "7:00am to 1:00pm",
-        "img": "/assets/Vector.png",
-        "endtime": "2:00pm to 10:20pm"
-      },
-      {
-        "id": 3,
-        "title": "Wednesday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm"
-      },
-      {
-        "id": 4,
-        "title": "Thursday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm",
-        "img": "/assets/Vector.png"
-      },
-      {
-        "id": 5,
-        "title": "Friday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm",
-        "img": "/assets/Vector.png"
-      },
-      {
-        "id": 6,
-        "title": "Saturday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm",
-        "img": "/assets/Vector.png"
-      },
-      {
-        "id": 7,
-        "title": "Sunday",
-        "starttime": "7:00am to 1:00pm",
-        "endtime": "2:00pm to 10:20pm",
-        "img": "/assets/Vector.png"
-      }
-    ]
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "title": "Monday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        },
+        {
+          "id": 2,
+          "title": "Tuesday",
+          "value": "7:00am to 1:00pm",
+          "img": "/assets/Vector.png",
+          "endtime": "2:00pm to 10:20pm"
+        },
+        {
+          "id": 3,
+          "title": "Wednesday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        },
+        {
+          "id": 4,
+          "title": "Thursday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        },
+        {
+          "id": 5,
+          "title": "Friday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        },
+        {
+          "id": 6,
+          "title": "Saturday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        },
+        {
+          "id": 7,
+          "title": "Sunday",
+          "value": "7:00am to 1:00pm",
+          "endtime": "2:00pm to 10:20pm",
+          "img": "/assets/Vector.png"
+        }
+      ]
+    }
   },
   "catelog": {
     "title": {
       "value": "Catelog"
     },
-    "content": [
-      {
-        "id": 1,
-        "image": "/assets/catelog-1.png",
-        "title": "Indian Saree"
-      },
-      {
-        "id": 2,
-        "image": "/assets/catelog-2.png",
-        "title": "Indian Kurti"
-      },
-      {
-        "id": 3,
-        "image": "/assets/catelog-3.png",
-        "title": "Skirts & Jacket"
-      },
-      {
-        "id": 4,
-        "image": "/assets/catelog-4.png",
-        "title": "Traditional Dress"
-      },
-      {
-        "id": 5,
-        "image": "/assets/catelog-5.png",
-        "title": "Women’s T-shirts"
-      },
-      {
-        "id": 6,
-        "image": "/assets/catelog-6.png",
-        "title": "T-shirts & Jeans"
-      }
-    ]
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "image": "/assets/catelog-1.png",
+          "title": "Indian Saree"
+        },
+        {
+          "id": 2,
+          "image": "/assets/catelog-2.png",
+          "title": "Indian Kurti"
+        },
+        {
+          "id": 3,
+          "image": "/assets/catelog-3.png",
+          "title": "Skirts & Jacket"
+        },
+        {
+          "id": 4,
+          "image": "/assets/catelog-4.png",
+          "title": "Traditional Dress"
+        },
+        {
+          "id": 5,
+          "image": "/assets/catelog-5.png",
+          "title": "Women’s T-shirts"
+        },
+        {
+          "id": 6,
+          "image": "/assets/catelog-6.png",
+          "title": "T-shirts & Jeans"
+        }
+      ]
+    }
   },
   "trending": {
     "title": {
       "value": "Trending of the week"
     },
-    "content": [
-      {
-        "id": 1,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      },
-      {
-        "id": 2,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      },
-      {
-        "id": 3,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      },
-      {
-        "id": 4,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      },
-      {
-        "id": 5,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      },
-      {
-        "id": 6,
-        "title": "Wearable Black Jacket",
-        "description": "Premium quality jacket with_unique coincept",
-        "interest": "28 People shown interest",
-        "price": "899",
-        "discount": "28",
-        "image": "/assets/trendingimage-1.png"
-      }
-    ]
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        },
+        {
+          "id": 2,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        },
+        {
+          "id": 3,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        },
+        {
+          "id": 4,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        },
+        {
+          "id": 5,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        },
+        {
+          "id": 6,
+          "title": "Wearable Black Jacket",
+          "description": "Premium quality jacket with_unique coincept",
+          "interest": "28 People shown interest",
+          "price": "899",
+          "discount": "28",
+          "image": "/assets/trendingimage-1.png"
+        }
+      ]
+    }
   },
   "collection": {
     "title": {
       "value": "Popular Collection"
     },
-    "content": [
-      {
-        "id": 1,
-        "image": "/assets/image-1.png",
-        "title": "Wearable Men's_Black T-shirt",
-        "price": 899,
-        "btn": "Quote Now"
-      },
-      {
-        "id": 2,
-        "image": "/assets/image-1.png",
-        "title": "Wearable Men's_Black T-shirt",
-        "price": 899,
-        "btn": "Quote Now"
-      },
-      {
-        "id": 3,
-        "image": "/assets/image-1.png",
-        "title": "Wearable Men's_Black T-shirt",
-        "price": 899,
-        "btn": "Quote Now"
-      },
-      {
-        "id": 4,
-        "image": "/assets/image-1.png",
-        "title": "Wearable Men's_Black T-shirt",
-        "price": 899,
-        "btn": "Quote Now"
-      }
-    ]
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "image": "/assets/image-1.png",
+          "title": "Wearable Men's_Black T-shirt",
+          "price": 899,
+          "btn": "Quote Now"
+        },
+        {
+          "id": 2,
+          "image": "/assets/image-1.png",
+          "title": "Wearable Men's_Black T-shirt",
+          "price": 899,
+          "btn": "Quote Now"
+        },
+        {
+          "id": 3,
+          "image": "/assets/image-1.png",
+          "title": "Wearable Men's_Black T-shirt",
+          "price": 899,
+          "btn": "Quote Now"
+        },
+        {
+          "id": 4,
+          "image": "/assets/image-1.png",
+          "title": "Wearable Men's_Black T-shirt",
+          "price": 899,
+          "btn": "Quote Now"
+        }
+      ]
+    }
   },
   "footer": {
     "title": {

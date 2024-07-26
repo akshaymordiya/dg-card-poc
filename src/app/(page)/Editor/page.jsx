@@ -5,7 +5,7 @@ import styles from "./style.module.scss";
 import elementData from "../../DataJSON/element.json";
 import Preview from "@/app/component/Preview";
 import Grid from "@/app/component/Grid";
-import { Input, Switch } from "@mui/material";
+import { Input, MenuItem, Select, Switch } from "@mui/material";
 import settingData from "../../DataJSON/settings.json";
 
 const EditorPage = () => {
@@ -13,10 +13,6 @@ const EditorPage = () => {
   const [currentElemenetsData, setCurrentElementsData] = useState(elementData);
   const initialSetting = useRef({ ...settingData });
   const [currentSetting, setCurrentSetting] = useState(settingData);
-
-  // const [inputValue, setInputValue] = useState("");
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [selectedFileRight, setSelectedFileRight] = useState(null);
 
   const updateSettings = (cmpId, eleId, value) => {
     setCurrentElementsData((prev) => ({
@@ -30,40 +26,6 @@ const EditorPage = () => {
       },
     }));
   };
-
-  // const handleInputbgChange = (event) => {
-  //   setSelectedFile(event.target.files[0]);
-  // };
-  // const handleRightImage = (event) => {
-  //   setSelectedFile(event.target.files[0]);
-  // };
-  // const handleInputChange = (event) => {
-  //   setInputValue(event.target.value);
-  //   updateSettings("headerview", "title", event.target.value);
-  // };
-  // const handleSave = async () => {
-  //   if (!selectedFile) {
-  //     return;
-  //   }
-  //   if (!selectedFileRight) {
-  //     return;
-  //   }
-
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(selectedFile);
-  //   reader.onload = (e) => {
-  //     const imageUrl = e.target.result;
-  //     updateSettings("header", "img", imageUrl);
-  //     setSelectedFile(null);
-  //   };
-  //   const reader1 = new FileReader();
-  //   reader1.readAsDataURL(selectedFileRight);
-  //   reader1.onload = (e) => {
-  //     const imageUrl = e.target.result;
-  //     updateSettings("headerview", "img", imageUrl);
-  //     setSelectedFileRight(null);
-  //   };
-  // };
 
   const updateElementData = (setting, value) => {
     setCurrentElementsData((prev) => ({
@@ -80,108 +42,259 @@ const EditorPage = () => {
 
   const updateCurrentSettings = (
     setting,
+    sectionKey,
     updatedSettingData = {},
     updatedElementData = {}
   ) => {
-    setCurrentSetting((prev) => ({
-      ...prev,
-      elements: prev.elements.map((ele) => {
-        if (ele.id === setting.id) {
-          const settingObj = {
-            ...ele,
-            props: {
-              ...ele.props,
-              ...updatedSettingData,
-            },
-          };
-          updateElementData(settingObj, updatedElementData);
-          return settingObj;
-        }
-        return ele;
-      }),
+    setCurrentSetting((prevState) => ({
+      ...prevState,
+      elements: {
+        ...prevState.elements,
+        [sectionKey]: {
+          ...prevState.elements[sectionKey],
+          settings: (prevState.elements[sectionKey].settings || []).map(
+            (settingItr) => {
+              if (settingItr.id === setting.id) {
+                const newSettingObj = {
+                  ...settingItr,
+                  props: {
+                    ...settingItr.props,
+                    ...updatedSettingData,
+                  },
+                };
+                updateElementData(newSettingObj, updatedElementData);
+                return newSettingObj;
+              }
+
+              return settingItr;
+            }
+          ),
+        },
+      },
     }));
   };
 
-  const getSettingComponent = (setting, key) => {
+  const getSettingComponent = (
+    setting,
+    sectionKey,
+    key,
+    loopValueMapper = null
+  ) => {
     const defaultValueOfCurrentSetting =
-      initialDataValue.current[setting.componentId][setting.bindingId]?.value;
-    switch (setting.type) {
+      initialDataValue.current?.[setting.componentId]?.[setting.bindingId]
+        ?.value;
+    switch (setting?.type) {
       case "input-file": {
         return (
-          <>
-          {/* {setting.componentId} */}
-          <div style={{ marginBottom: "15px" }}>
+          <Grid.Item sm={12} md={6} lg={6} xl={6}>
             <label htmlFor={key}>{setting.props.label} :</label> <br />
             <Input
               key={key}
               {...setting.props}
               value={setting.props.value}
               onChange={({ target: { files } }) => {
-                const file = files[0];
-                if (file) {
-                  updateCurrentSettings(
-                    setting,
+                const file = files?.[0];
+                let mappingValue = null;
+                if (loopValueMapper) {
+                  mappingValue = loopValueMapper(
                     { data: file },
                     { value: URL.createObjectURL(file) }
                   );
-                } else {
-                  console.log("initialDataValue", initialDataValue);
+                }
+                if (file) {
                   updateCurrentSettings(
                     setting,
-                    { data: null },
+                    sectionKey,
+                    mappingValue
+                      ? { value: mappingValue.settingsData }
+                      : { data: file },
                     {
-                      value: defaultValueOfCurrentSetting,
+                      value: mappingValue
+                        ? mappingValue.elementsData
+                        : URL.createObjectURL(file),
+                    }
+                  );
+                } else {
+                  updateCurrentSettings(
+                    setting,
+                    sectionKey,
+                    { data: file },
+                    {
+                      value: mappingValue
+                        ? mappingValue.elementsData
+                        : URL.createObjectURL(file),
                     }
                   );
                 }
               }}
             />
-          </div>
-          </>
+          </Grid.Item>
         );
+      }
+
+      case "loop": {
+        return setting.props.value.map((loopSetting, index) => {
+          return getSettingComponent(
+            {
+              ...loopSetting,
+              id: setting.id,
+              bindingId: setting.bindingId,
+              componentId: setting.componentId,
+            },
+            sectionKey,
+            `${index}-time_setting-${loopSetting.id}`,
+
+            (updatedSettingValue, updatedElementvalue) => {
+              if (!updatedSettingValue || !updatedElementvalue) {
+                return null;
+              }
+
+              return {
+                settingsData: setting.props.value.map((ls) => {
+                  if (ls.id === loopSetting.id) {
+                    return {
+                      ...ls,
+                      props: {
+                        ...ls.props,
+                        ...updatedSettingValue,
+                      },
+                    };
+                  }
+
+                  return ls;
+                }),
+                elementsData: currentElemenetsData[setting.componentId][
+                  setting.bindingId
+                ].value.map((element) => {
+                  if (element.id === loopSetting.elementBindingId) {
+                    return {
+                      ...element,
+                      ...updatedElementvalue,
+                    };
+                  }
+
+                  return element;
+                }),
+              };
+            }
+          );
+        });
+      }
+
+      case "time": {
+        return setting.props.value.map((timeSetting, index) => {
+          //           const timeObject = new Date();
+          // timeObject.setHours(hours);
+          // timeObject.setMinutes(minutes);
+          return getSettingComponent(
+            {
+              ...timeSetting,
+              id: setting.id,
+              bindingId: setting.bindingId,
+              componentId: setting.componentId,
+            },
+            sectionKey,
+            `${index}-loop_setting-${timeSetting.id}`,
+            (updatedSettingTimeValue, updatedElementTimeValue) => {
+              return {
+                settingsData: setting.props.value.map((ls) => {
+                  if (ls.id === timeSetting.id) {
+                    return {
+                      ...ls,
+                      props: {
+                        ...ls.props,
+                        ...updatedSettingTimeValue,
+                      },
+                    };
+                  }
+                }),
+
+                elementsData: currentElemenetsData[setting.componentId][
+                  setting.bindingId
+                ].value.map((element) => {
+                  if (element.id === timeSetting.elementBindingId) {
+                    return {
+                      ...element,
+                      ...updatedElementTimeValue,
+                    };
+                  }
+                }),
+              };
+            }
+          );
+        });
       }
 
       case "input": {
         return (
-          <>
-          {/* {setting.componentId} */}
-          <div style={{ marginBottom: "15px" }}>
+          <Grid.Item
+            sm={12}
+            md={6}
+            lg={6}
+            xl={6}
+            itemClass={styles.editor_col_1_content_wrapper}
+          >
             <label htmlFor={key}>{setting.props.label} :</label> <br />
             <Input
               key={key}
               {...setting.props}
               value={setting.props.value}
               onChange={({ target: { value } }) => {
+                let timeSetValue = null;
+                if (loopValueMapper) {
+                  // loopValueMapper(value);
+                  // return;
+                  timeSetValue = loopValueMapper({ value }, { value });
+                }
+
                 if (!value) {
                   updateCurrentSettings(
                     setting,
-                    { value: "" },
-                    { value: defaultValueOfCurrentSetting }
+                    sectionKey,
+                    timeSetValue ? timeSetValue.settingsData : { value },
+                    {
+                      value: timeSetValue
+                        ? timeSetValue.elementsData
+                        : defaultValueOfCurrentSetting,
+                    }
                   );
                 } else {
-                  updateCurrentSettings(setting, { value }, { value });
+                  updateCurrentSettings(
+                    setting,
+                    sectionKey,
+                    { value },
+                    { value }
+                  );
                 }
               }}
             />
-          </div>
-          </>
+          </Grid.Item>
         );
       }
+
       case "toggle": {
         return (
-          <>
-            {/* {setting.componentId} */}
-            <label htmlFor={key}>{setting.props.label} :</label> 
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <label htmlFor={key}>{setting.props.label}</label>
             <Switch
               key={key}
               {...setting.props}
               onChange={({ target: { checked } }) => {
-                console.log("checked", checked);
-                updateCurrentSettings(setting, { checked }, { value: checked });
+                if (loopValueMapper) {
+                  loopValueMapper(checked);
+                  return;
+                }
+
+                updateCurrentSettings(
+                  setting,
+                  sectionKey,
+                  { checked },
+                  { value: checked }
+                );
               }}
               inputProps={{ "aria-label": "controlled" }}
             />
-          </>
+          </div>
         );
       }
 
@@ -190,9 +303,6 @@ const EditorPage = () => {
       }
     }
   };
-
-  console.log("currentSetting.element", currentSetting.elements);
-  console.log("currentElemenetsData", currentElemenetsData);
 
   return (
     <Grid classNames={styles.editor}>
@@ -204,12 +314,26 @@ const EditorPage = () => {
         xl={6}
         itemClass={styles.editor_col_1}
       >
-        {currentSetting.elements.map((setting, index) =>
-          getSettingComponent(setting, `${index}-setting-${setting.id}`)
+        {Object.entries(currentSetting.elements).map(
+          ([sectionKey, sectionSettingsValue], index) => {
+            return (
+              <div key={index}>
+                <h2 className={styles.editor_col_1_title}>
+                  {sectionSettingsValue.title}
+                </h2>
+                <Grid classNames={styles.editor_col_1_content}>
+                  {sectionSettingsValue.settings.map((setting, index) =>
+                    getSettingComponent(
+                      setting,
+                      sectionKey,
+                      `${index}-setting-${setting.id}`
+                    )
+                  )}
+                </Grid>
+              </div>
+            );
+          }
         )}
-
-
-        {/* <button onClick={handleSave}>Save Changes</button> */}
       </Grid.Item>
       <Grid.Item
         xs={12}

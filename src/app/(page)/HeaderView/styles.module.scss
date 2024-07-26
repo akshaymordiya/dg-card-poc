@@ -77,6 +77,19 @@
         @include respond-to("small_phone") {
           display: none;
         }
+        .social_link {
+          &_item {
+            img {
+              border: 1px #ffa72b dashed;
+              margin-right: 15px;
+              border-radius: 17px;
+              height: 45px;
+              width: 45px;
+              padding: 10px;
+            }
+          }
+        }
+        
       }
       &_mobileshow {
         display: none;
@@ -153,6 +166,18 @@
         margin-top: 15px;
         display: flex;
         justify-content: center;
+      }
+      .social_link {
+        &_item {
+          img {
+            border: 1px #ffa72b dashed;
+            margin-right: 15px;
+            border-radius: 17px;
+            height: 45px;
+            width: 45px;
+            padding: 10px;
+          }
+        }
       }
     }
    &_content_wrapper {

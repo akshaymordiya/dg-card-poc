@@ -1,16 +1,31 @@
 .editor {
-
   &_col_1 {
     padding: 20px;
-    height: 92vh;
+    height: 100vh !important;
+    overflow-y: scroll;
     place-content: start !important;
-    .input {
+    input {
       border: 1px solid #cdcdcd !important;
-      color:  red !important;
+      padding: 8px 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      &::after{
+        border-bottom: none !important;
+      }
+      &:hover:not:before{
+        border-bottom: none !important;
+      }
+    }
+    
+    &_title{
+     padding: 15px 0px;
     }
   }
   &_col_2{
     padding: 20px;
     place-content: start !important;
   }
+}
+.css-bz5ng3-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before{
+  border-bottom: none !important;
 }

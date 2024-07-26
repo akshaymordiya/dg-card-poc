@@ -12,7 +12,7 @@ const Catelog = () => {
     <div className={styles.catelog_wrapper}>
       <SectionTitle title={catelog.title.value} />
       <Grid classNames={styles.catelog_wrapper_content}>
-          {catelog?.content?.map((item, index) => (
+          {catelog?.content?.value?.map((item, index) => (
             <Grid.Item
               md={4}
               lg={4}

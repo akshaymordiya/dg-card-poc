@@ -13,7 +13,7 @@ const Trending = () => {
     <div className={styles.trending_wrapper}>
       <SectionTitle title={trending?.title?.value} />
       <Grid classNames={styles.trending_wrapper_content}>
-        {trending?.content?.map((item, index) => {
+        {trending?.content?.value?.map((item, index) => {
           const count = String(index + 1).padStart(2, "0");
           return index % 2 == 0 ? (
             <Grid.Item
