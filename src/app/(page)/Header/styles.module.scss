@@ -61,6 +61,8 @@
       }
       @include respond-to("large_tablet") {
         top: 42%;
+        height: 140px;
+        width: 140px;
       }
       @include respond-to("small_tablet") {
         height: 140px;
@@ -86,6 +88,10 @@
         width: 170px;
         filter: blur(1px);
         border-radius: 150px;
+        @include respond-to("large_tablet") {
+          height: 140px;
+          width: 140px;
+        }
         @include respond-to("small_tablet") {
           height: 140px;
           width: 140px;

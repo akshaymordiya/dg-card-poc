@@ -36,7 +36,10 @@ const Sheduled = () => {
         itemClass={styles.sheduled_wrapper_col_2}
       >
         <div className={styles.sheduled_wrapper_col_2_show_btn}>
-          <Button text={scheduled?.button?.value} itemclass={styles.Showless_btn} />
+          <Button
+            text={scheduled?.button?.value}
+            itemclass={styles.Showless_btn}
+          />
         </div>
       </Grid.Item>
       <Grid.Item
@@ -48,18 +51,24 @@ const Sheduled = () => {
         itemClass={styles.sheduled_wrapper_col_3}
       >
         <div className={styles.sheduled_wrapper_col_3_content}>
-          {scheduled?.content?.value.map((item, index) => (
-            <div className={styles.content_box} key={index}>
-              <div className={styles.content_box_title}>
-                <h4>{item?.title}</h4>
-                <IMG src={item?.img} useRawImgTag />
+          {scheduled?.content?.value?.map((item, index) => {
+            return (
+              <div className={styles.content_box} key={index}>
+                <div className={styles.content_box_title}>
+                  <h4>{item?.title}</h4>
+                  {item?.img && <IMG src="/assets/Vector.png" useRawImgTag />}
+                </div>
+                <div className={styles.content_box_time}>
+                  {item?.value?.map((items, index) => (
+                    <div className={index}>
+                      <span className={styles.span}>{items?.from}</span>
+                      <span className={styles.span}> to {items?.to}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className={styles.content_box_time}>
-                <span>{item?.value}</span> <br />
-                <span>{item?.endtime}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Grid.Item>
     </Grid>

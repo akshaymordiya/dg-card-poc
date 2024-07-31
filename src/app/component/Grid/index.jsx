@@ -19,6 +19,7 @@ Grid.Item = ({
   lg = undefined,
   xl = undefined,
   itemClass = "",
+  deviceSize,
   ...props
 }) => {
   const getClassNames = () => {

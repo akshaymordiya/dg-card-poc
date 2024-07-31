@@ -71,6 +71,7 @@
         }
       ]
     },
+
     "HeaderView": {
       "title": "Header View",
       "settings": [
@@ -328,18 +329,28 @@
         },
         {
           "id": "scheduled-dropdown",
-          "type": "time",
+          "type": "loop",
           "props": {
             "value": [
               {
                 "id": "scheduled-dropdown_monday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "type": "time",
-                  "value": null,
-                  "clockType": "",
+                  "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Monday"
                 },
@@ -347,13 +358,23 @@
               },
               {
                 "id": "scheduled-dropdown_tuesday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "type": "time",
-                  "value": null,
-                  "clockType": "",
+                  "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Tuesday"
                 },
@@ -361,12 +382,23 @@
               },
               {
                 "id": "scheduled-dropdown_wednesday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "value": null,
-                  "clockType": "",
+                  "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Wednesday"
                 },
@@ -374,12 +406,23 @@
               },
               {
                 "id": "scheduled-dropdown_thursday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "value": null,
-                  "clockType": "",
+                 "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Thursday"
                 },
@@ -387,12 +430,23 @@
               },
               {
                 "id": "scheduled-dropdown_friday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "value": null,
-                  "clockType": "",
+                 "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Friday"
                 },
@@ -400,13 +454,23 @@
               },
               {
                 "id": "scheduled-dropdown_saturday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
                   "type": "text",
-                  "value": null,
-                  "clockType": "",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Saturday"
                 },
@@ -414,12 +478,23 @@
               },
               {
                 "id": "scheduled-dropdown_sunday",
-                "type": "input",
+                "parentId": "scheduled-dropdown",
+                "type": "timeValue",
                 "props": {
-                  "value": null,
-                  "clockType": "",
+                 "type": "text",
+                  "value": [
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 1
+                    },
+                    {
+                      "from": null,
+                      "to": null,
+                      "elementId": 2
+                    }
+                  ],
                   "placeholder": "Enter text",
-                  "clockFormat": "HH:mm",
                   "required": true,
                   "label": "Sunday"
                 },
@@ -429,6 +504,34 @@
           },
           "bindingId": "content",
           "componentId": "scheduled"
+        }
+      ]
+    },
+
+    "catelog": {
+      "title": "Catelog",
+      "settings": [
+        {
+          "id": "catelog-item",
+          "type": "loop",
+          "props": {
+            "value": [
+              {
+                "id": "catelog-item-1",
+                "type": "input-file",
+                "props": {
+                  "type": "file",
+                  "value": null,
+                  "placeholder": "Select file",
+                  "required": true,
+                  "label": "Indian Saree"
+                },
+                "elementBindingId": 1
+              }
+            ]
+          },
+          "bindingId": "content",
+          "componentId": "catelog"
         }
       ]
     },

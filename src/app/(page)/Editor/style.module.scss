@@ -1,3 +1,5 @@
+@import '../../style/variable';
+
 .editor {
   &_col_1 {
     padding: 20px;
@@ -18,14 +20,50 @@
     }
     
     &_title{
-     padding: 15px 0px;
+     padding: 15px 0px;     
     }
+    .DownArrow{
+      margin-left: 10px;
+      margin-top: 5px;
+     }
   }
   &_col_2{
     padding: 20px;
     place-content: start !important;
   }
 }
-.css-bz5ng3-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before{
-  border-bottom: none !important;
+.timepicker_content{
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  span{
+    margin: 0px 5px;
+  }
+}
+.DemoContainer{
+  flex-direction: column !important;
+}
+.textfield {
+  min-width:135px !important;
+
+}
+.closebtn{
+  height: 30px;
+  width: 40px;
+  background-color: $white-color !important;
+  color: $secondary-color;
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Addbtn{
+  background-color: $white-color !important;
+  color: $secondary-color;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-top: 10px;
 }

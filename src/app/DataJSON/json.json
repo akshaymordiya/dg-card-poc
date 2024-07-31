@@ -1,0 +1,96 @@
+{
+    "id": "scheduled-dropdown",
+    "type": "loop",
+    "props": {
+      "value": [
+        {
+          "id": "scheduled-dropdown_monday",
+          "type": "timeValue",
+          "props": {
+            "type": "text",
+            "value": {
+              "from": null,
+              "to": null
+            },
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Monday"
+          },
+          "elementBindingId": 1
+        },
+        {
+          "id": "scheduled-dropdown_tuesday",
+          "type": "timeValue",
+          "props": {
+            "type": "text",
+            "value":{
+              "from": null,
+              "to": null
+            },
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Tuesday"
+          },
+          "elementBindingId": 2
+        },
+        {
+          "id": "scheduled-dropdown_wednesday",
+          "type": "input",
+          "props": {
+            "value": null,
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Wednesday"
+          },
+          "elementBindingId": 3
+        },
+        {
+          "id": "scheduled-dropdown_thursday",
+          "type": "input",
+          "props": {
+            "value": null,
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Thursday"
+          },
+          "elementBindingId": 4
+        },
+        {
+          "id": "scheduled-dropdown_friday",
+          "type": "input",
+          "props": {
+            "value": null,
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Friday"
+          },
+          "elementBindingId": 5
+        },
+        {
+          "id": "scheduled-dropdown_saturday",
+          "type": "input",
+          "props": {
+            "type": "text",
+            "value": null,
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Saturday"
+          },
+          "elementBindingId": 6
+        },
+        {
+          "id": "scheduled-dropdown_sunday",
+          "type": "input",
+          "props": {
+            "value": null,
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Sunday"
+          },
+          "elementBindingId": 7
+        }
+      ]
+    },
+    "bindingId": "content",
+    "componentId": "scheduled"
+  }

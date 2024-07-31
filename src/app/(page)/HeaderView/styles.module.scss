@@ -1,28 +1,28 @@
-@import "../../style/mixin";
-@import "../../style/variable";
+  @import "../../style/mixin";
+  @import "../../style/variable";
 
-.headerview_content {
-  position: relative;
-  margin: 100px auto 0px;
-  padding: 0px 20px;
-  @include respond-to("extra_large_desktop") {
-    max-width: 1499px;
-  }
-  &_col_1 {
-    place-content: start !important;
-    &_content {
-      @include respond-to("small_tablet") {
-        display: flex;
-        justify-content: space-between;
-      }
-      @include respond-to("phone") {
-        display: flex;
-        justify-content: space-between;
-      }
-      @include respond-to("small_phone") {
-        display: flex;
-        justify-content: space-between;
-      }
+  .headerview_content {
+    position: relative;
+    margin: 100px auto 0px;
+    padding: 0px 20px;
+    @include respond-to("extra_large_desktop") {
+      max-width: 1499px;
+    }
+    &_col_1 {
+      place-content: start !important;
+      &_content {
+        @include respond-to("small_tablet") {
+          display: flex;
+          justify-content: space-between;
+        }
+        @include respond-to("phone") {
+          display: flex;
+          justify-content: space-between;
+        }
+        @include respond-to("small_phone") {
+          display: flex;
+          justify-content: space-between;
+        }
       .title {
         display: flex;
         align-items: center;

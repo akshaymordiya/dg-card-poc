@@ -97,51 +97,115 @@
         {
           "id": 1,
           "title": "Monday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 2,
           "title": "Tuesday",
-          "value": "7:00am to 1:00pm",
-          "img": "/assets/Vector.png",
-          "endtime": "2:00pm to 10:20pm"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
+          
         },
         {
           "id": 3,
           "title": "Wednesday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 4,
           "title": "Thursday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 5,
           "title": "Friday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 6,
           "title": "Saturday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 7,
           "title": "Sunday",
-          "value": "7:00am to 1:00pm",
-          "endtime": "2:00pm to 10:20pm",
-          "img": "/assets/Vector.png"
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         }
       ]
     }
@@ -154,32 +218,32 @@
       "value": [
         {
           "id": 1,
-          "image": "/assets/catelog-1.png",
+          "value": "/assets/catelog-1.png",
           "title": "Indian Saree"
         },
         {
           "id": 2,
-          "image": "/assets/catelog-2.png",
+          "value": "/assets/catelog-2.png",
           "title": "Indian Kurti"
         },
         {
           "id": 3,
-          "image": "/assets/catelog-3.png",
+          "value": "/assets/catelog-3.png",
           "title": "Skirts & Jacket"
         },
         {
           "id": 4,
-          "image": "/assets/catelog-4.png",
+          "value": "/assets/catelog-4.png",
           "title": "Traditional Dress"
         },
         {
           "id": 5,
-          "image": "/assets/catelog-5.png",
+          "value": "/assets/catelog-5.png",
           "title": "Women’s T-shirts"
         },
         {
           "id": 6,
-          "image": "/assets/catelog-6.png",
+          "value": "/assets/catelog-6.png",
           "title": "T-shirts & Jeans"
         }
       ]

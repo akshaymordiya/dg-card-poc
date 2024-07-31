@@ -5,14 +5,34 @@ import styles from "./style.module.scss";
 import elementData from "../../DataJSON/element.json";
 import Preview from "@/app/component/Preview";
 import Grid from "@/app/component/Grid";
-import { Input, MenuItem, Select, Switch } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Input, Switch } from "@mui/material";
+import dayjs from "dayjs";
 import settingData from "../../DataJSON/settings.json";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { v4 as uuidv4 } from 'uuid';
 
 const EditorPage = () => {
   const initialDataValue = useRef({ ...elementData });
   const [currentElemenetsData, setCurrentElementsData] = useState(elementData);
   const initialSetting = useRef({ ...settingData });
   const [currentSetting, setCurrentSetting] = useState(settingData);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [numInputs, setNumInputs] = useState(1);
+  const [bindingId, setBindingId] = useState("");
+  const handleCloseBtn = (index) => {
+    // Ensure at least one input field remains
+    if (numInputs > 1) {
+      setNumInputs((prevNumInputs) => prevNumInputs - 1);
+    }
+  };
+
+  const handleAddInput = () => {
+    setNumInputs((prevNumInputs) => prevNumInputs + 1);
+  };
 
   const updateSettings = (cmpId, eleId, value) => {
     setCurrentElementsData((prev) => ({
@@ -38,6 +58,14 @@ const EditorPage = () => {
         },
       },
     }));
+  };
+
+  const handleHideShow = (index) => {
+    if (index === currentIndex) {
+      setCurrentIndex(null);
+    } else {
+      setCurrentIndex(index);
+    }
   };
 
   const updateCurrentSettings = (
@@ -74,6 +102,49 @@ const EditorPage = () => {
     }));
   };
 
+  const addInput = (
+    setting,
+    sectionKey,
+    updatedSettingsValue = [],
+    updatedElementsValue = []
+  ) => {
+    const newSettingObj = {
+      ...setting,
+      props: {
+        ...setting.props,
+        value: updatedSettingsValue
+      }
+    }
+
+    const parentSetting = currentSetting.elements[sectionKey].settings.find(st => st.id === setting.parentId)
+
+    updateCurrentSettings(
+      parentSetting,
+      sectionKey,
+      {
+        value: parentSetting.props.value.map(psv => {
+          if (psv.id === newSettingObj?.originId || psv.id === newSettingObj?.id) {
+            return newSettingObj
+          }
+          
+          return psv
+        })
+      },
+      {
+        value: currentElemenetsData[parentSetting.componentId][parentSetting.bindingId].value.map(eleValue => {
+          if (eleValue.id === newSettingObj.elementBindingId) {
+            return {
+              ...eleValue,
+              value: updatedElementsValue
+            }
+          }
+
+          return eleValue
+        })
+      }
+    )
+  }
+
   const getSettingComponent = (
     setting,
     sectionKey,
@@ -95,7 +166,7 @@ const EditorPage = () => {
               onChange={({ target: { files } }) => {
                 const file = files?.[0];
                 let mappingValue = null;
-                if (loopValueMapper) {
+                if (loopValueMapper && file) {
                   mappingValue = loopValueMapper(
                     { data: file },
                     { value: URL.createObjectURL(file) }
@@ -118,11 +189,9 @@ const EditorPage = () => {
                   updateCurrentSettings(
                     setting,
                     sectionKey,
-                    { data: file },
+                    { data: null },
                     {
-                      value: mappingValue
-                        ? mappingValue.elementsData
-                        : URL.createObjectURL(file),
+                      value: defaultValueOfCurrentSetting,
                     }
                   );
                 }
@@ -138,12 +207,12 @@ const EditorPage = () => {
             {
               ...loopSetting,
               id: setting.id,
+              originId: loopSetting.id,
               bindingId: setting.bindingId,
               componentId: setting.componentId,
             },
             sectionKey,
-            `${index}-time_setting-${loopSetting.id}`,
-
+            `${index}-loop_setting-${loopSetting.id}`,
             (updatedSettingValue, updatedElementvalue) => {
               if (!updatedSettingValue || !updatedElementvalue) {
                 return null;
@@ -181,48 +250,172 @@ const EditorPage = () => {
         });
       }
 
-      case "time": {
-        return setting.props.value.map((timeSetting, index) => {
-          //           const timeObject = new Date();
-          // timeObject.setHours(hours);
-          // timeObject.setMinutes(minutes);
-          return getSettingComponent(
-            {
-              ...timeSetting,
-              id: setting.id,
-              bindingId: setting.bindingId,
-              componentId: setting.componentId,
-            },
-            sectionKey,
-            `${index}-loop_setting-${timeSetting.id}`,
-            (updatedSettingTimeValue, updatedElementTimeValue) => {
-              return {
-                settingsData: setting.props.value.map((ls) => {
-                  if (ls.id === timeSetting.id) {
-                    return {
-                      ...ls,
-                      props: {
-                        ...ls.props,
-                        ...updatedSettingTimeValue,
-                      },
-                    };
-                  }
-                }),
+      case "timeValue": {
+        return (
+          <Grid.Item sm={12} md={6} lg={6} xl={6}>
+            <label htmlFor={key}>{setting.props.label}:</label> <br />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["TimePicker", "TimePicker"]}>
+                <div className={styles.DemoContainer}>
+                  {setting?.props?.value?.map((timeValue, index) => (
+                    <div className={styles.timepicker_content} key={index}>
+                      <span>
+                        <TimePicker
+                          key={key}
+                          {...timeValue.props}
+                          label="From"
+                          value={timeValue.from}
+                          onChange={(value) => {
+                            let pickedUpValue = null;
+                            if (loopValueMapper) {
+                              const updatedElement = currentElemenetsData[
+                                setting.componentId
+                              ][setting.bindingId].value.find(v => v.id === setting.elementBindingId);
 
-                elementsData: currentElemenetsData[setting.componentId][
-                  setting.bindingId
-                ].value.map((element) => {
-                  if (element.id === timeSetting.elementBindingId) {
-                    return {
-                      ...element,
-                      ...updatedElementTimeValue,
-                    };
+                              pickedUpValue = loopValueMapper(
+                                {
+                                  value: setting.props.value.map((v) => {
+                                    if (v.elementId === timeValue.elementId) {
+                                      return { ...v, from: value };
+                                    }
+
+                                    return v;
+                                  }),
+                                },
+                                {
+                                  value: updatedElement.value.map(contentValue => {
+                                    if (contentValue.id === timeValue.elementId) {
+                                      return { ...contentValue, from: dayjs(value).format('HH:mm a') };
+                                    }
+  
+                                    return contentValue
+                                  })
+                                }
+                              );
+                            }
+
+                            if (value) {
+                              updateCurrentSettings(
+                                setting,
+                                sectionKey,
+                                pickedUpValue
+                                  ? { value: pickedUpValue.settingsData }
+                                  : { value },
+                                {
+                                  value: pickedUpValue
+                                    ? pickedUpValue.elementsData
+                                    : value,
+                                }
+                              );
+                            } else {
+                              updateCurrentSettings(
+                                setting,
+                                sectionKey,
+                                { value: null },
+                                { value: defaultValueOfCurrentSetting }
+                              );
+                            }
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <TimePicker
+                          key={key}
+                          {...setting.props}
+                          label="To"
+                          value={setting.props.value.to}
+                          onChange={(value) => {
+                            let pickedUpValue = null;
+                            if (loopValueMapper) {
+                              const updatedElement = currentElemenetsData[
+                                setting.componentId
+                              ][setting.bindingId].value.find(v => v.id === setting.elementBindingId);
+
+                              pickedUpValue = loopValueMapper(
+                                {
+                                  value: setting.props.value.map((v) => {
+                                    if (v.elementId === timeValue.elementId) {
+                                      return { ...v, to: value };
+                                    }
+
+                                    return v;
+                                  }),
+                                },
+                                {
+                                  value: updatedElement.value.map(contentValue => {
+                                    if (contentValue.id === timeValue.elementId) {
+                                      return { ...contentValue, to: dayjs(value).format('HH:mm a') };
+                                    }
+  
+                                    return contentValue
+                                  })
+                                }
+                              );
+                            }
+
+                            if (value) {
+                              updateCurrentSettings(
+                                setting,
+                                sectionKey,
+                                pickedUpValue
+                                  ? { value: pickedUpValue.settingsData }
+                                  : { value: value },
+                                {
+                                  value: pickedUpValue
+                                    ? pickedUpValue.elementsData
+                                    : value,
+                                }
+                              );
+                            } else {
+                              updateCurrentSettings(
+                                setting,
+                                sectionKey,
+                                { value: null },
+                                { value: defaultValueOfCurrentSetting }
+                              );
+                            }
+                          }}
+                        />
+                      </span>
+                      <span
+                        className={styles.closebtn}
+                        type="reset"
+                        onClick={() => handleCloseBtn(index)}
+                      >
+                        x
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </DemoContainer>
+            </LocalizationProvider>
+            <button className={styles.Addbtn} onClick={() => {
+              const publicId = uuidv4();
+              addInput(
+                setting,
+                sectionKey,
+                [
+                  ...setting.props.value,
+                  {
+                    from: null,
+                    to: null,
+                    elementId: publicId
                   }
-                }),
-              };
-            }
-          );
-        });
+                ],
+                [
+                  ...currentElemenetsData[setting.componentId][setting.bindingId].value.find(v => v.id === setting.elementBindingId).value,
+                  {
+                    from: "",
+                    to: "",
+                    id: publicId
+                  }
+                ]
+              )
+            }}>
+              Add
+            </button>
+          </Grid.Item>
+        );
       }
 
       case "input": {
@@ -242,28 +435,22 @@ const EditorPage = () => {
               onChange={({ target: { value } }) => {
                 let timeSetValue = null;
                 if (loopValueMapper) {
-                  // loopValueMapper(value);
-                  // return;
-                  timeSetValue = loopValueMapper({ value }, { value });
+                  timeSetValue = loopValueMapper({ value: value }, { value });
                 }
 
-                if (!value) {
+                if (value) {
                   updateCurrentSettings(
                     setting,
                     sectionKey,
-                    timeSetValue ? timeSetValue.settingsData : { value },
-                    {
-                      value: timeSetValue
-                        ? timeSetValue.elementsData
-                        : defaultValueOfCurrentSetting,
-                    }
+                    { value: value },
+                    { value: timeSetValue ? timeSetValue.elementsData : value }
                   );
                 } else {
                   updateCurrentSettings(
                     setting,
                     sectionKey,
-                    { value },
-                    { value }
+                    { value: null },
+                    { value: defaultValueOfCurrentSetting }
                   );
                 }
               }}
@@ -304,6 +491,9 @@ const EditorPage = () => {
     }
   };
 
+  console.log("currentSetting", currentSetting);
+  console.log("currentElemenetsData", currentElemenetsData);
+
   return (
     <Grid classNames={styles.editor}>
       <Grid.Item
@@ -318,31 +508,34 @@ const EditorPage = () => {
           ([sectionKey, sectionSettingsValue], index) => {
             return (
               <div key={index}>
-                <h2 className={styles.editor_col_1_title}>
-                  {sectionSettingsValue.title}
-                </h2>
-                <Grid classNames={styles.editor_col_1_content}>
-                  {sectionSettingsValue.settings.map((setting, index) =>
-                    getSettingComponent(
-                      setting,
-                      sectionKey,
-                      `${index}-setting-${setting.id}`
-                    )
-                  )}
-                </Grid>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h2 className={styles.editor_col_1_title}>
+                    {sectionSettingsValue.title}
+                  </h2>
+                  <span
+                    className={styles.DownArrow}
+                    onClick={() => handleHideShow(index)}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </span>
+                </div>
+                {currentIndex === index && (
+                  <Grid classNames={styles.editor_col_1_content}>
+                    {sectionSettingsValue.settings.map((setting, index) =>
+                      getSettingComponent(
+                        setting,
+                        sectionKey,
+                        `${index}-setting-${setting.id}`
+                      )
+                    )}
+                  </Grid>
+                )}
               </div>
             );
           }
         )}
       </Grid.Item>
-      <Grid.Item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={6}
-        xl={6}
-        itemClass={styles.editor_col_2}
-      >
+      <Grid.Item sm={12} md={12} lg={6} xl={6} itemClass={styles.editor_col_2}>
         <Preview classNames={styles.preview} data={currentElemenetsData}>
           <Template />
         </Preview>
