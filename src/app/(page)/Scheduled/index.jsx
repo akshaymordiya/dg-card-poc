@@ -62,7 +62,7 @@ const Sheduled = () => {
                   {item?.value?.map((items, index) => (
                     <div className={index}>
                       <span className={styles.span}>{items?.from}</span>
-                      <span className={styles.span}> to {items?.to}</span>
+                      <span className={styles.span}>{items?.to ? ' to':''} {items?.to}</span>
                     </div>
                   ))}
                 </div>

@@ -12,18 +12,22 @@ const Catelog = () => {
     <div className={styles.catelog_wrapper}>
       <SectionTitle title={catelog.title.value} />
       <Grid classNames={styles.catelog_wrapper_content}>
-          {catelog?.content?.value?.map((item, index) => (
-            <Grid.Item
-              md={4}
-              lg={4}
-              xl={4}
-              itemClass={styles.catelog_wrapper_content_item}
-              key={index}
-            >
-              <IMG src={item?.value} imageClasses={styles.catelog_img} useRawImgTag />
-              <h4>{item?.title}</h4>
-            </Grid.Item>
-          ))}
+        {catelog?.content?.value?.map((item, index) => (
+          <Grid.Item
+            md={4}
+            lg={4}
+            xl={4}
+            itemClass={styles.catelog_wrapper_content_item}
+            key={index}
+          >
+            <IMG
+              src={item?.image}
+              imageClasses={styles.catelog_img}
+              useRawImgTag
+            />
+            <h4>{item?.title}</h4>
+          </Grid.Item>
+        ))}
       </Grid>
     </div>
   );

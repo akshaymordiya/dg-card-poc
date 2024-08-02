@@ -197,6 +197,7 @@
               {
                 "id": "headerview-social_icon_whatsapp",
                 "type": "input-file",
+                "parentId": "headerview-social_icon_btns",
                 "props": {
                   "type": "file",
                   "placeholder": "Upload whatsappIcon",
@@ -211,6 +212,7 @@
               {
                 "id": "headerview-social_icon_instagram",
                 "type": "input-file",
+                "parentId": "headerview-social_icon_btns",
                 "props": {
                   "type": "file",
                   "placeholder": "Upload InstagramIcon",
@@ -225,6 +227,7 @@
               {
                 "id": "headerview-social_icon_facebook",
                 "type": "input-file",
+                "parentId": "headerview-social_icon_btns",
                 "props": {
                   "type": "file",
                   "placeholder": "Upload FacebookIcon",
@@ -239,6 +242,7 @@
               {
                 "id": "headerview-social_icon_youtube",
                 "type": "input-file",
+                "parentId": "headerview-social_icon_btns",
                 "props": {
                   "type": "file",
                   "placeholder": "Upload YoutubeIcon",
@@ -253,6 +257,7 @@
               {
                 "id": "headerview-social_icon_meesho",
                 "type": "input-file",
+                "parentId": "headerview-social_icon_btns",
                 "props": {
                   "type": "file",
                   "placeholder": "Upload MeeshoIcon",
@@ -409,7 +414,7 @@
                 "parentId": "scheduled-dropdown",
                 "type": "timeValue",
                 "props": {
-                 "type": "text",
+                  "type": "text",
                   "value": [
                     {
                       "from": null,
@@ -433,7 +438,7 @@
                 "parentId": "scheduled-dropdown",
                 "type": "timeValue",
                 "props": {
-                 "type": "text",
+                  "type": "text",
                   "value": [
                     {
                       "from": null,
@@ -481,7 +486,7 @@
                 "parentId": "scheduled-dropdown",
                 "type": "timeValue",
                 "props": {
-                 "type": "text",
+                  "type": "text",
                   "value": [
                     {
                       "from": null,
@@ -517,19 +522,44 @@
           "props": {
             "value": [
               {
-                "id": "catelog-item-1",
-                "type": "input-file",
+                "id": "catelog-item_content_1",
+                "parentId": "catelog-item",
+                "type": "catelogItem",
                 "props": {
-                  "type": "file",
-                  "value": null,
-                  "placeholder": "Select file",
+                  "value": [
+                    {
+                      "elementId": 1,
+                      "image": null,
+                      "title": null
+                    }
+                  ],
+                  "placeholder": "Enter text",
                   "required": true,
-                  "label": "Indian Saree"
+                  "label": "Item - 1"
                 },
                 "elementBindingId": 1
+              },
+              {
+                "id": "catelog-item_content_2",
+                "parentId": "catelog-item",
+                "type": "catelogItem",
+                "props": {
+                  "value": [
+                    {
+                      "elementId": 1,
+                      "image": null,
+                      "title": null
+                    }
+                  ],
+                  "placeholder": "Enter text",
+                  "required": true,
+                  "label": "Item - 2"
+                },
+                "elementBindingId": 2
               }
             ]
           },
+
           "bindingId": "content",
           "componentId": "catelog"
         }

@@ -1,96 +1,70 @@
-{
-    "id": "scheduled-dropdown",
-    "type": "loop",
-    "props": {
+
+  {
+    "catelog": {
+    "title": {
+      "value": "Catelog"
+    },
+    "content": {
       "value": [
         {
-          "id": "scheduled-dropdown_monday",
-          "type": "timeValue",
-          "props": {
-            "type": "text",
-            "value": {
-              "from": null,
-              "to": null
+          "id": 1,
+          "value": [
+            {
+              "image": "/assets/catelog-1.png",
+              "id": 1
             },
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Monday"
-          },
-          "elementBindingId": 1
+            {
+              "text": "Indian Saree",
+              "id": 2
+            }
+          ]
         },
         {
-          "id": "scheduled-dropdown_tuesday",
-          "type": "timeValue",
-          "props": {
-            "type": "text",
-            "value":{
-              "from": null,
-              "to": null
-            },
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Tuesday"
-          },
-          "elementBindingId": 2
+          "id": 2,
+          "value": "/assets/catelog-2.png",
+          "title": "Indian Kurti"
         },
         {
-          "id": "scheduled-dropdown_wednesday",
-          "type": "input",
-          "props": {
-            "value": null,
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Wednesday"
-          },
-          "elementBindingId": 3
+          "id": 3,
+          "value": "/assets/catelog-3.png",
+          "title": "Skirts & Jacket"
         },
         {
-          "id": "scheduled-dropdown_thursday",
-          "type": "input",
-          "props": {
-            "value": null,
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Thursday"
-          },
-          "elementBindingId": 4
+          "id": 4,
+          "value": "/assets/catelog-4.png",
+          "title": "Traditional Dress"
         },
         {
-          "id": "scheduled-dropdown_friday",
-          "type": "input",
-          "props": {
-            "value": null,
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Friday"
-          },
-          "elementBindingId": 5
+          "id": 5,
+          "value": "/assets/catelog-5.png",
+          "title": "Women’s T-shirts"
         },
         {
-          "id": "scheduled-dropdown_saturday",
-          "type": "input",
-          "props": {
-            "type": "text",
-            "value": null,
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Saturday"
-          },
-          "elementBindingId": 6
-        },
-        {
-          "id": "scheduled-dropdown_sunday",
-          "type": "input",
-          "props": {
-            "value": null,
-            "placeholder": "Enter text",
-            "required": true,
-            "label": "Sunday"
-          },
-          "elementBindingId": 7
+          "id": 6,
+          "value": "/assets/catelog-6.png",
+          "title": "T-shirts & Jeans"
         }
       ]
-    },
-    "bindingId": "content",
-    "componentId": "scheduled"
+    }
+  }
+  },
+  {
+    "elementId": 1,
+    "type": "input-file",
+    "props": {
+      "type": "file",
+      "placeholder": "upload file",
+      "image": null,
+      "required": true
+    }
+  },
+  {
+    "elementId": 2,
+    "type": "input",
+    "props": {
+      "type": "text",
+      "placeholder": "Enter text",
+      "title": null,
+      "required": true
+    }
   }
