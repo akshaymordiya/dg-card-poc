@@ -8,6 +8,7 @@ import { TemplateContext } from "@/app/context/TemplateContext";
 const Catelog = () => {
   const data = useContext(TemplateContext);
   const { catelog } = data;
+
   return (
     <div className={styles.catelog_wrapper}>
       <SectionTitle title={catelog.title.value} />
@@ -20,11 +21,13 @@ const Catelog = () => {
             itemClass={styles.catelog_wrapper_content_item}
             key={index}
           >
-            <IMG
-              src={item?.image}
-              imageClasses={styles.catelog_img}
-              useRawImgTag
-            />
+            {item?.image ? (
+              <IMG
+                src={item?.image}
+                imageClasses={styles.catelog_img}
+                useRawImgTag
+              />
+            ) : null}
             <h4>{item?.title}</h4>
           </Grid.Item>
         ))}

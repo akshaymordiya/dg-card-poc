@@ -20,19 +20,17 @@ function Collection() {
             itemClass={styles.collection_wrapper_content_item}
             key={item.id}
           >
-            <IMG src={item?.image} useRawImgTag />
+            {item?.image ? <IMG src={item?.image} useRawImgTag /> : null}
             <div className={styles.collection_wrapper_content_item_info}>
-              <h2>
-                {item?.title.split("_").map((word, index) => (
-                  <span key={index}>
-                    {word} <br />
-                  </span>
-                ))}
-              </h2>
-              <span className={styles.price}>₹ {item?.price}.00 /-</span>
-              <div className={styles.Quotenow}>
-                <Button text={item?.btn} itemclass={styles.Quotenow_text} />
-              </div>
+              <h2>{item?.title}</h2>
+              <span className={styles.price}>
+                {item?.price ? `₹ ${item?.price}.00 /-` : null}
+              </span>
+              {item?.btn ? (
+                <div className={styles.Quotenow}>
+                  <Button text={item?.btn} itemclass={styles.Quotenow_text} />
+                </div>
+              ) : null}
             </div>
           </Grid.Item>
         ))}

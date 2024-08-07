@@ -1,7 +1,7 @@
 {
   "template": "",
   "elements": {
-    "Header": {
+    "header": {
       "title": "Header",
       "settings": [
         {
@@ -72,7 +72,7 @@
       ]
     },
 
-    "HeaderView": {
+    "headerView": {
       "title": "Header View",
       "settings": [
         {
@@ -277,7 +277,7 @@
       ]
     },
 
-    "Scheduled": {
+    "scheduled": {
       "title": "Scheduled",
       "settings": [
         {
@@ -520,48 +520,1184 @@
           "id": "catelog-item",
           "type": "loop",
           "props": {
+            "mockValue": {
+              "id": "catelog-item_content_1",
+              "parentId": "catelog-item",
+              "hasMultipleSettings": [
+                {
+                  "type": "input-file",
+                  "props": {
+                    "type": "file",
+                    "placeholder": "Upload File",
+                    "required": true,
+                    "label": "Select Image"
+                  },
+                  "bindingKey": "image"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Title"
+                  },
+                  "bindingKey": "title"
+                }
+              ],
+              "props": {
+                "value": {
+                  "elementId": 1,
+                  "image": null,
+                  "title": null
+                }
+              },
+              "elementBindingId": 1
+            },
             "value": [
               {
                 "id": "catelog-item_content_1",
                 "parentId": "catelog-item",
-                "type": "catelogItem",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
                 "props": {
-                  "value": [
-                    {
-                      "elementId": 1,
-                      "image": null,
-                      "title": null
-                    }
-                  ],
-                  "placeholder": "Enter text",
-                  "required": true,
-                  "label": "Item - 1"
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
                 },
                 "elementBindingId": 1
               },
               {
                 "id": "catelog-item_content_2",
                 "parentId": "catelog-item",
-                "type": "catelogItem",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
                 "props": {
-                  "value": [
-                    {
-                      "elementId": 1,
-                      "image": null,
-                      "title": null
-                    }
-                  ],
-                  "placeholder": "Enter text",
-                  "required": true,
-                  "label": "Item - 2"
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
                 },
                 "elementBindingId": 2
+              },
+              {
+                "id": "catelog-item_content_3",
+                "parentId": "catelog-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
+                },
+                "elementBindingId": 3
+              },
+              {
+                "id": "catelog-item_content_4",
+                "parentId": "catelog-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
+                },
+                "elementBindingId": 4
+              },
+              {
+                "id": "catelog-item_content_5",
+                "parentId": "catelog-item",
+               "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
+                },
+                "elementBindingId": 5
+              },
+              {
+                "id": "catelog-item_content_6",
+                "parentId": "catelog-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Title"
+                    },
+                    "bindingKey": "title"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null
+                  }
+                },
+                "elementBindingId": 6
               }
             ]
           },
-
           "bindingId": "content",
           "componentId": "catelog"
+        }
+      ]
+    },
+
+    "trending": {
+      "title": "Trending",
+      "settings": [
+        {
+          "id": "trending-item",
+          "type": "loop",
+          "props": {
+            "mockValue":{
+              "id": "trending-item_content_1",
+              "parentId": "trending-item",
+              "hasMultipleSettings": [
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": " Item title"
+                  },
+                  "bindingKey": "title"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Description"
+                  },
+                  "bindingKey": "description"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Interest"
+                  },
+                  "bindingKey": "interest"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "number",
+                    "placeholder": "Price",
+                    "required": true,
+                    "label": "Price"
+                  },
+                  "bindingKey": "price"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "number",
+                    "placeholder": "Discount",
+                    "required": true,
+                    "label": "Discount"
+                  },
+                  "bindingKey": "discount"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Add button"
+                  },
+                  "bindingKey": "btn"
+                },
+                {
+                  "type": "input-file",
+                  "props": {
+                    "type": "file",
+                    "placeholder": "Upload File",
+                    "required": true,
+                    "label": "Select Image"
+                  },
+                  "bindingKey": "image"
+                }
+              ],
+              "props": {
+                "value": {
+                  "elementId": 1,
+                  "title": null,
+                  "description": null,
+                  "interest": null,
+                  "price": null,
+                  "discount": null,
+                  "btn":null,
+                  "image": null
+                }
+              },
+              "elementBindingId": 1
+            },
+            "value": [
+              {
+                "id": "trending-item_content_1",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 1
+              },
+              {
+                "id": "trending-item_content_2",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 2
+              },
+              {
+                "id": "trending-item_content_3",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 3
+              },
+              {
+                "id": "trending-item_content_4",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 4
+              },
+              {
+                "id": "trending-item_content_5",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 5
+              },
+              {
+                "id": "trending-item_content_6",
+                "parentId": "trending-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": " Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Description"
+                    },
+                    "bindingKey": "description"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Interest"
+                    },
+                    "bindingKey": "interest"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Discount",
+                      "required": true,
+                      "label": "Discount"
+                    },
+                    "bindingKey": "discount"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  },
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "title": null,
+                    "description": null,
+                    "interest": null,
+                    "price": null,
+                    "discount": null,
+                    "btn" : null,
+                    "image": null
+                  }
+                },
+                "elementBindingId": 6
+              }
+            ]
+          },
+          "bindingId": "content",
+          "componentId": "trending"
+        }
+      ]
+    },
+
+    "collection": {
+      "title": "Collection",
+      "settings": [
+        {
+          "id": "collection-item",
+          "type": "loop",
+          "props": {
+            "mockValue":{
+              "id": "collection-item_content_1",
+              "parentId": "collection-item",
+              "hasMultipleSettings": [
+                {
+                  "type": "input-file",
+                  "props": {
+                    "type": "file",
+                    "placeholder": "Upload File",
+                    "required": true,
+                    "label": "Select Image"
+                  },
+                  "bindingKey": "image"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Item title"
+                  },
+                  "bindingKey": "title"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "number",
+                    "placeholder": "Price",
+                    "required": true,
+                    "label": "Price"
+                  },
+                  "bindingKey": "price"
+                },
+                {
+                  "type": "input",
+                  "props": {
+                    "type": "text",
+                    "placeholder": "Enter text",
+                    "required": true,
+                    "label": "Add button"
+                  },
+                  "bindingKey": "btn"
+                }
+              ],  
+              "props": {
+                "value": {
+                  "elementId": 1,
+                  "image": null,
+                  "title": null,
+                  "price": null,
+                  "btn": null
+                }
+              },
+              "elementBindingId": 1
+            },
+            "value": [
+              {
+                "id": "collection-item_content_1",
+                "parentId": "collection-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null,
+                    "price": null,
+                    "btn": null
+                  }
+                },
+                "elementBindingId": 1
+              },
+              {
+                "id": "collection-item_content_2",
+                "parentId": "collection-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null,
+                    "price": null,
+                    "btn": null
+                  }
+                },
+                "elementBindingId": 2
+              },
+              {
+                "id": "collection-item_content_3",
+                "parentId": "collection-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null,
+                    "price": null,
+                    "btn": null
+                  }
+                },
+                "elementBindingId": 3
+              },
+              {
+                "id": "collection-item_content_4",
+                "parentId": "collection-item",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Item title"
+                    },
+                    "bindingKey": "title"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "number",
+                      "placeholder": "Price",
+                      "required": true,
+                      "label": "Price"
+                    },
+                    "bindingKey": "price"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Add button"
+                    },
+                    "bindingKey": "btn"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "elementId": 1,
+                    "image": null,
+                    "title": null,
+                    "price": null,
+                    "btn": null
+                  }
+                },
+                "elementBindingId": 4
+              }
+            ]
+          },
+          "bindingId": "content",
+          "componentId": "collection"
         }
       ]
     },
@@ -593,6 +1729,91 @@
             "label": "footer description"
           },
           "bindingId": "paragraph",
+          "componentId": "footer"
+        },
+        {
+          "id": "footer-social_icon_btns",
+          "type": "loop",
+          "props": {
+            "value": [
+              {
+                "id": "footer-social_icon_whatsapp",
+                "type": "input-file",
+                "parentId": "footer-social_icon_btns",
+                "props": {
+                  "type": "file",
+                  "placeholder": "Upload whatsappIcon",
+                  "isLink": true,
+                  "href": "#",
+                  "value": null,
+                  "required": true,
+                  "label": "Whatsapp Icon"
+                },
+                "elementBindingId": 1
+              },
+              {
+                "id": "footer-social_icon_instagram",
+                "type": "input-file",
+                "parentId": "footer-social_icon_btns",
+                "props": {
+                  "type": "file",
+                  "placeholder": "Upload InstagramIcon",
+                  "isLink": true,
+                  "href": "#",
+                  "value": null,
+                  "required": true,
+                  "label": "Instagram Icon"
+                },
+                "elementBindingId": 2
+              },
+              {
+                "id": "footer-social_icon_facebook",
+                "type": "input-file",
+                "parentId": "footer-social_icon_btns",
+                "props": {
+                  "type": "file",
+                  "placeholder": "Upload FacebookIcon",
+                  "isLink": true,
+                  "href": "#",
+                  "value": null,
+                  "required": true,
+                  "label": "Facebook Icon"
+                },
+                "elementBindingId": 3
+              },
+              {
+                "id": "footer-social_icon_youtube",
+                "type": "input-file",
+                "parentId": "footer-social_icon_btns",
+                "props": {
+                  "type": "file",
+                  "placeholder": "Upload YoutubeIcon",
+                  "isLink": true,
+                  "href": "#",
+                  "value": null,
+                  "required": true,
+                  "label": "Youtube Icon"
+                },
+                "elementBindingId": 4
+              },
+              {
+                "id": "footer-social_icon_meesho",
+                "type": "input-file",
+                "parentId": "footer-social_icon_btns",
+                "props": {
+                  "type": "file",
+                  "placeholder": "Upload MeeshoIcon",
+                  "isLink": true,
+                  "href": "#",
+                  "value": null,
+                  "required": true,
+                  "label": "Meesho Icon"
+                },
+                "elementBindingId": 5
+              }
+            ]
+          },
+          "bindingId": "content",
           "componentId": "footer"
         },
         {

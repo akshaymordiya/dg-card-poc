@@ -6,7 +6,7 @@ import elementData from "../../DataJSON/element.json";
 import Preview from "@/app/component/Preview";
 import Grid from "@/app/component/Grid";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { Input, Switch } from "@mui/material";
+import { Button, Input, Switch } from "@mui/material";
 import dayjs from "dayjs";
 import settingData from "../../DataJSON/settings.json";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -21,7 +21,7 @@ const EditorPage = () => {
   const [currentElemenetsData, setCurrentElementsData] = useState(elementData);
   const initialSetting = useRef({ ...settingData });
   const [currentSetting, setCurrentSetting] = useState(settingData);
-  const [currentIndex, setCurrentIndex] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(6);
 
   const updateSettings = (cmpId, eleId, value) => {
     setCurrentElementsData((prev) => ({
@@ -64,7 +64,7 @@ const EditorPage = () => {
     updatedElementData = {},
     mapSettingId = null
   ) => {
-    console.log("setting", setting);
+    console.log("setting payload", setting);
     console.log("mapSettingId", mapSettingId);
     console.log("updatedSettingData", updatedSettingData);
     setCurrentSetting((prevState) => ({
@@ -99,7 +99,9 @@ const EditorPage = () => {
     setting,
     sectionKey,
     updatedSettingsValue = [],
-    updatedElementsValue = []
+    updatedElementsValue = [],
+    replacedTheWholeSettingsValue = false,
+    replacedTheWholeElementsValue = false
   ) => {
     const newSettingObj = {
       ...setting,
@@ -108,6 +110,7 @@ const EditorPage = () => {
         value: updatedSettingsValue,
       },
     };
+
     const parentSetting = currentSetting.elements[sectionKey].settings.find(
       (st) => st.id === setting.parentId
     );
@@ -115,27 +118,32 @@ const EditorPage = () => {
       parentSetting,
       sectionKey,
       {
-        value: parentSetting.props.value.map((settingValue) => {
-          if (settingValue.id === newSettingObj.id) {
-            return newSettingObj;
-          }
-          return settingValue;
-        }),
+        value: replacedTheWholeSettingsValue
+          ? updatedSettingsValue
+          : parentSetting.props.value.map((settingValue) => {
+              if (settingValue.id === newSettingObj.id) {
+                return newSettingObj;
+              }
+              return settingValue;
+            }),
       },
       {
-        value: currentElemenetsData[parentSetting.componentId][
-          parentSetting.bindingId
-        ].value.map((eleValue) => {
-          if (eleValue.id === newSettingObj.elementBindingId) {
-            return {
-              ...eleValue,
-              value: updatedElementsValue,
-            };
-          }
+        value: replacedTheWholeElementsValue
+          ? updatedElementsValue
+          : currentElemenetsData[parentSetting.componentId][
+              parentSetting.bindingId
+            ].value.map((eleValue) => {
+              if (eleValue.id === newSettingObj.elementBindingId) {
+                return {
+                  ...eleValue,
+                  value: updatedElementsValue,
+                };
+              }
 
-          return eleValue;
-        }),
-      }
+              return eleValue;
+            }),
+      },
+      parentSetting?.id ?? newSettingObj?.parentId
     );
   };
 
@@ -151,7 +159,7 @@ const EditorPage = () => {
     switch (setting?.type) {
       case "input-file": {
         return (
-          <Grid.Item sm={12} md={6} lg={6} xl={6}>
+          <div className={styles.child_setting}>
             <label htmlFor={key}>{setting.props.label} :</label> <br />
             <Input
               key={key}
@@ -168,7 +176,7 @@ const EditorPage = () => {
                         ? URL.createObjectURL(file)
                         : defaultValueOfCurrentSetting.find(
                             (v) => v.id === setting.elementBindingId
-                          ).value,
+                          )[setting?.bindingKey ? "value" : null],
                     }
                   );
                 }
@@ -205,212 +213,199 @@ const EditorPage = () => {
                 }
               }}
             />
-          </Grid.Item>
+          </div>
         );
       }
 
       case "loop": {
-        return setting.props.value.map((loopSetting, index) => {
-          return getSettingComponent(
-            {
-              ...loopSetting,
-              originId: loopSetting.id,
-              bindingId: setting.bindingId,
-              componentId: setting.componentId,
-            },
-            sectionKey,
-            `${index}-loop_setting-${loopSetting.id}`,
-            (updatedSettingValue, updatedElementvalue) => {
-              if (!updatedSettingValue || !updatedElementvalue) {
-                return null;
+        return (
+          <React.Fragment>
+            {setting.props.value.map((loopSetting, index) => {
+              if (loopSetting?.hasMultipleSettings) {
+                return (
+                  <div className={styles.childsetting}>
+                    {loopSetting.hasMultipleSettings.map(
+                      (childSetting, index) => {
+                        return getSettingComponent(
+                          {
+                            ...loopSetting,
+                            ...childSetting,
+                            props: {
+                              ...childSetting.props,
+                              value:
+                                loopSetting.props.value[
+                                  childSetting.bindingKey
+                                ],
+                            },
+                            originId: loopSetting.id,
+                            bindingId: setting.bindingId,
+                            componentId: setting.componentId,
+                          },
+                          sectionKey,
+                          `${index}-loop_setting-${loopSetting.id}-${childSetting.type}`,
+                          (updatedSettingValue, updatedElementvalue) => {
+                            if (!updatedSettingValue || !updatedElementvalue) {
+                              return null;
+                            }
+
+                            return {
+                              settingsData: setting.props.value.map((ls) => {
+                                if (ls.id === loopSetting.id) {
+                                  return {
+                                    ...ls,
+                                    props: {
+                                      ...ls.props,
+                                      value: {
+                                        ...ls.props.value,
+                                        [childSetting.bindingKey]:
+                                          updatedSettingValue?.value ?? null,
+                                      },
+                                      ...(updatedSettingValue?.data && {
+                                        data: updatedSettingValue?.data,
+                                      }),
+                                    },
+                                  };
+                                }
+
+                                return ls;
+                              }),
+                              elementsData: currentElemenetsData[
+                                setting.componentId
+                              ][setting.bindingId].value.map((element) => {
+                                if (
+                                  element.id === loopSetting.elementBindingId
+                                ) {
+                                  return {
+                                    ...element,
+                                    [childSetting.bindingKey]:
+                                      updatedElementvalue?.value,
+                                  };
+                                }
+
+                                return element;
+                              }),
+                            };
+                          }
+                        );
+                      }
+                    )}
+                    <span
+                      className={styles.close_btn}
+                      type="reset"
+                      onClick={() => {
+                        UpdatedAddInput(
+                          loopSetting,
+                          sectionKey,
+                          (setting.props.value ?? []).filter((sv) => {
+                            return sv.id !== loopSetting.id;
+                          }),
+                          currentElemenetsData[setting.componentId][
+                            setting.bindingId
+                          ].value.filter(
+                            (cv) => cv.id !== loopSetting.elementBindingId
+                          ),
+                          true,
+                          true
+                        );
+                      }}
+                    >
+                      x
+                    </span>
+                  </div>
+                );
               }
 
-              return {
-                settingsData: setting.props.value.map((ls) => {
-                  if (ls.id === loopSetting.id) {
-                    return {
-                      ...ls,
-                      props: {
-                        ...ls.props,
-                        ...updatedSettingValue,
-                      },
-                    };
-                  }
-
-                  return ls;
-                }),
-                elementsData: currentElemenetsData[setting.componentId][
-                  setting.bindingId
-                ].value.map((element) => {
-                  if (element.id === loopSetting.elementBindingId) {
-                    return {
-                      ...element,
-                      ...updatedElementvalue,
-                    };
-                  }
-
-                  return element;
-                }),
-              };
-            }
-          );
-        });
-      }
-
-      case "catelogItem": {
-        return (
-          <Grid.Item
-            sm={12}
-            md={12}
-            lg={12}
-            xl={12}
-            itemClass={styles.catelog_content}
-          >
-            <label htmlFor={key}>{setting.props.label}</label>
-            {setting?.props?.value.map((timeValue, index) => {
               return (
-                <div key={index} className={styles.catelog_content_wrapper}>
-                  <Input
-                    type="file"
-                    className={styles.catelog_content_wrapper}
-                    key={key}
-                    {...setting.props}
-                    value={setting.props.value.image}
-                    onChange={({ target: { files } }) => {
-                      const file = files?.[0];
-                      console.log("file ", file);
-                      let mappingValue = null;
-                      if (loopValueMapper) {
-                        console.log("mappingValue", mappingValue);
-                        mappingValue = loopValueMapper(
-                          {
-                            value: setting.props.value.map((items) => {
-                              if (v.elementId === timeValue.elementId) {
-                                return {
-                                  ...items,
-                                image: file ?? null,
-                               }
-                              };
-                              return items
-                            }),
-                          },
-                          {
-                            value: file
-                              ? URL.createObjectURL(file)
-                              : defaultValueOfCurrentSetting.find(
-                                  (v) => v.id === setting.elementBindingId
-                                ).value,
-                          }
-                        );
-                      }
-                      if (file) {
-                        console.log(
-                          "updateCurrentSettings",
-                          updateCurrentSettings
-                        );
-                        updateCurrentSettings(
-                          setting,
-                          sectionKey,
-                          mappingValue
-                            ? { value: mappingValue.settingsData }
-                            : { data: file },
-                          {
-                            value: mappingValue
-                              ? mappingValue.elementsData
-                              : URL.createObjectURL(file),
-                          },
-                          setting?.parentId
-                        );
-                      } else {
-                        updateCurrentSettings(
-                          setting,
-                          sectionKey,
-                          mappingValue
-                            ? {
-                                value: mappingValue.settingsData,
-                              }
-                            : { data: null },
-                          {
-                            value: mappingValue
-                              ? mappingValue.elementsData
-                              : URL.createObjectURL(file),
-                          },
-                          setting?.parentId
-                        );
-                      }
-                    }}
-                  />
-                  <Input
-                    key={key}
-                    {...setting.props}
-                    value={setting.props.value.title}
-                    onChange={({ target: { value } }) => {
-                      let textValue = null;
-                      if (loopValueMapper) {
-                        // const updatedElement = currentElemenetsData[
-                        //   setting.componentId
-                        // ][setting.bindingId].value.find(
-                        //   (v) => v.id === setting.elementBindingId
-                        // );
-                        textValue = loopValueMapper(
-                          {
-                            value: setting.props.value.map((v) => {
-                              if (v.elementId === timeValue.elementId) {
-                                return { ...v, title: value ?? null };
-                              }
-
-                              return v;
-                            }),
-                          },
-                          {
-                            value: currentElemenetsData[setting.componentId][
-                              setting.bindingId
-                            ]?.value?.map((contentValue) => {
-                              if (contentValue.id === timeValue.elementId) {
-                                return {
-                                  ...contentValue,
-                                  title: value ? value : contentValue?.title,
-                                };
-                              }
-
-                              return contentValue;
-                            }),
-                          }
-                        );
+                <React.Fragment className={styles.childsetting}>
+                  {getSettingComponent(
+                    {
+                      ...loopSetting,
+                      originId: loopSetting.id,
+                      bindingId: setting.bindingId,
+                      componentId: setting.componentId,
+                    },
+                    sectionKey,
+                    `${index}-loop_setting-${loopSetting.id}`,
+                    (updatedSettingValue, updatedElementvalue) => {
+                      if (!updatedSettingValue || !updatedElementvalue) {
+                        return null;
                       }
 
-                      if (value) {
-                        updateCurrentSettings(
-                          setting,
-                          sectionKey,
-                          textValue
-                            ? { value: textValue.settingsData }
-                            : { value },
-                          {
-                            value: textValue ? textValue.elementsData : value,
-                          },
-                          setting.parentId
-                        );
-                      } else {
-                        updateCurrentSettings(
-                          setting,
-                          sectionKey,
-                          textValue
-                            ? { value: textValue.settingsData }
-                            : { value: null },
-                          {
-                            value: textValue
-                              ? textValue.elementsData
-                              : defaultValueOfCurrentSetting,
+                      return {
+                        settingsData: setting.props.value.map((ls) => {
+                          if (ls.id === loopSetting.id) {
+                            return {
+                              ...ls,
+                              props: {
+                                ...ls.props,
+                                ...updatedSettingValue,
+                              },
+                            };
                           }
-                        );
-                      }
-                    }}
-                  />
-                </div>
+
+                          return ls;
+                        }),
+                        elementsData: currentElemenetsData[setting.componentId][
+                          setting.bindingId
+                        ].value.map((element) => {
+                          if (element.id === loopSetting.elementBindingId) {
+                            return {
+                              ...element,
+                              ...updatedElementvalue,
+                            };
+                          }
+
+                          return element;
+                        }),
+                      };
+                    }
+                  )}
+                </React.Fragment>
               );
             })}
-          </Grid.Item>
+            {currentSetting?.elements[sectionKey]?.title === "Catelog" ||
+            currentSetting?.elements[sectionKey]?.title === "Trending" ||
+            currentSetting?.elements[sectionKey]?.title === "Collection" ? (
+              <button
+                className={styles.Addbtn}
+                onClick={() => {
+                  const elementBindingId = uuidv4();
+                  const publicId = uuidv4();
+                  const parentId = setting?.id;
+
+                  const newSettingObj = {
+                    ...setting.props.mockValue,
+                    id: publicId,
+                    elementBindingId,
+                    parentId,
+                  };
+
+                  const newElementObj = {
+                    ...currentElemenetsData[setting.componentId][
+                      setting.bindingId
+                    ]?.mockValue,
+                    id: elementBindingId,
+                  };
+
+                  UpdatedAddInput(
+                    newSettingObj,
+                    sectionKey,
+                    [...setting.props.value, newSettingObj],
+                    [
+                      ...currentElemenetsData[setting.componentId][
+                        setting.bindingId
+                      ].value,
+                      newElementObj,
+                    ],
+                    true,
+                    true
+                  );
+                }}
+              >
+                Add
+              </button>
+            ) : null}
+          </React.Fragment>
         );
       }
 
@@ -648,44 +643,58 @@ const EditorPage = () => {
 
       case "input": {
         return (
-          <Grid.Item
-            sm={12}
-            md={6}
-            lg={6}
-            xl={6}
-            itemClass={styles.editor_col_1_content_wrapper}
-          >
+          <div className={styles.child_setting}>
             <label htmlFor={key}>{setting.props.label} :</label> <br />
             <Input
               key={key}
               {...setting.props}
               value={setting.props.value}
               onChange={({ target: { value } }) => {
-                // let timeSetValue = null;
+                let mappingValue = null;
                 if (loopValueMapper) {
-                  loopValueMapper(value);
-                  return;
-                  // timeSetValue = loopValueMapper({ value: value }, { value });
+                  console.log("setting.bindingKEy", setting.bindingKey);
+
+                  mappingValue = loopValueMapper(
+                    { value },
+                    {
+                      value:
+                        value ??
+                        defaultValueOfCurrentSetting.find(
+                          (contentValue) =>
+                            contentValue.id === setting.elementBindingId
+                        )[setting?.bindingKey ?? "value"],
+                    }
+                  );
+
+                  console.log("mappingValuer", mappingValue);
                 }
 
                 if (value) {
                   updateCurrentSettings(
                     setting,
                     sectionKey,
-                    { value: value },
-                    { value }
+                    { value: mappingValue ? mappingValue.settingsData : value },
+                    {
+                      value: mappingValue ? mappingValue.elementsData : value,
+                    },
+                    setting?.parentId
                   );
                 } else {
                   updateCurrentSettings(
                     setting,
                     sectionKey,
-                    { value: null },
-                    { value: defaultValueOfCurrentSetting }
+                    { value: mappingValue ? mappingValue.settingsData : null },
+                    {
+                      value: mappingValue
+                        ? mappingValue.elementsData
+                        : defaultValueOfCurrentSetting,
+                    },
+                    setting?.parentId
                   );
                 }
               }}
             />
-          </Grid.Item>
+          </div>
         );
       }
 
@@ -741,6 +750,7 @@ const EditorPage = () => {
                   <h2 className={styles.editor_col_1_title}>
                     {sectionSettingsValue.title}
                   </h2>
+
                   <span
                     className={styles.DownArrow}
                     onClick={() => handleHideShow(index)}
@@ -748,17 +758,14 @@ const EditorPage = () => {
                     <KeyboardArrowDownIcon />
                   </span>
                 </div>
-                {currentIndex === index && (
-                  <Grid classNames={styles.editor_col_1_content}>
-                    {sectionSettingsValue.settings.map((setting, index) =>
-                      getSettingComponent(
-                        setting,
-                        sectionKey,
-                        `${index}-setting-${setting.id}`
-                      )
-                    )}
-                  </Grid>
-                )}
+                {currentIndex === index &&
+                  sectionSettingsValue.settings.map((setting, index) =>
+                    getSettingComponent(
+                      setting,
+                      sectionKey,
+                      `${index}-setting-${setting.id}`
+                    )
+                  )}
               </div>
             );
           }

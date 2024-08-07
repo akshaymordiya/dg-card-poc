@@ -6,6 +6,7 @@ import Link from "next/link";
 import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+import IMG from "@/app/component/Img";
 
 const Footer = () => {
   const data = useContext(TemplateContext);
@@ -28,6 +29,22 @@ const Footer = () => {
               </span>
             ))}
           </p>
+          <div className={styles.footer_wrapper_col_1_content}>
+          {footer?.content?.value.map((item, index) => (
+              <div
+                key={index}
+                className={styles.footer_wrapper_col_1_content_icon}
+              >
+                <IMG
+                  src={item?.value}
+                  imageClasses={styles.imageclass}
+                  useRawImgTag
+                  containerClasses={styles.icon}
+                  useContainer
+                />
+              </div>
+          ))}
+            </div>
         </Grid.Item>
         <Grid.Item
           sm={12}
@@ -37,24 +54,21 @@ const Footer = () => {
           itemClass={styles.footer_wrapper_col_2}
         >
           <div className={styles.footer_wrapper_col_2_content}>
-            <div className={styles.footer_wrapper_col_2_content_icon}>
-              <Link href="#" className={styles.icon}>
-                {<AttachEmailOutlinedIcon />}
-              </Link>
-              <span>{footer?.mail?.value}</span>
-            </div>
-            <div className={styles.footer_wrapper_col_2_content_icon}>
-              <Link href="#" className={styles.icon}>
-                {<PhoneInTalkOutlinedIcon />}
-              </Link>
-              <span>{footer?.phone?.value}</span>
-            </div>
-            <div className={styles.footer_wrapper_col_2_content_icon}>
-              <Link href="#" className={styles.icon}>
-                {<FmdGoodOutlinedIcon />}
-              </Link>
-              <span>{footer?.titlepara?.value}</span>
-            </div>
+            {footer?.contact?.value.map((item, index) => (
+              <div
+                key={index}
+                className={styles.footer_wrapper_col_2_content_icon}
+              >
+                <IMG
+                  src={item?.image}
+                  imageClasses={styles.imageclass}
+                  useRawImgTag
+                  containerClasses={styles.icon}
+                  useContainer
+                />
+                <span>{item?.text}</span>
+              </div>
+            ))}
           </div>
         </Grid.Item>
       </Grid>

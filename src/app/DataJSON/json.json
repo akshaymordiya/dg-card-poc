@@ -46,7 +46,6 @@
         }
       ]
     }
-  }
   },
   {
     "elementId": 1,
@@ -68,3 +67,102 @@
       "required": true
     }
   }
+
+
+
+  "trending" :{
+    "title":"Trending",
+    "settings":[
+     {
+       "id":"trending-item",
+         "type": "loop",
+         "props": {
+           "value":[
+             {
+               "id": "trending-item_1",
+               "parentId": "trending-item",
+                "type":"",
+                "props": {
+                 "value": [
+                    {
+                      "id": 1,
+                      "item": [
+                        {
+                          "elementId": 1,
+                          "type": "file",
+                          "image": null
+                        },
+                        {
+                          "elementId": 2,
+                          "type": "text",
+                          "title": null
+                        },
+                        {
+                          "elementId": 3,
+                          "type": "text",
+                          "price": null
+                        }
+                      ]
+                    },
+                  ]
+                 }  
+                } 
+           ]     
+             }
+           
+         }
+        ]
+     }
+    
+
+
+     {
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Item - 2"
+      },
+      "bindingKey": "description"
+    },
+    {
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Item - 3"
+      },
+      "bindingKey": "interest"
+    },
+    {
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Item - 4"
+      },
+      "bindingKey": "price"
+    },
+    {
+      "type": "input",
+      "props": {
+        "type": "text",
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Item - 4"
+      },
+      "bindingKey": "discount"
+    },
+    {
+      "type": "input-file",
+      "props": {
+        "type": "file",
+        "placeholder": "Upload File",
+        "required": true,
+        "label": "Item - 5"
+      },
+      "bindingKey": "image"
+    }

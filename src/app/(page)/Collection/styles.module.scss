@@ -33,6 +33,9 @@
     }
 
     &_item {
+      img{
+        aspect-ratio: 1 / 1;
+      }
       @include respond-to("large_tablet") {
         width: 300px;
         grid-column: span 1 !important;

@@ -41,6 +41,23 @@
       line-height: 25px;
       color: #aeaeae;
     }
+    &_content {
+      display: flex;
+      align-items: center;
+      &_icon {
+        display: flex;
+        align-items: center;
+        .icon {
+          margin-top: 15px;
+          margin-right: 25px;
+          .imageclass {
+            width: 33px !important;
+            height: 33px !important;
+          }
+        }
+        
+      }
+    }
   }
   &_col_2 {
     padding: 0px 20px 0px;
@@ -66,7 +83,8 @@
             border-radius: 0px 14px 14px 0px;
           }
 
-          svg {
+          .imageclass {
+            width: auto !important;
             background-color: $white-color;
             color: $primary-color;
             padding: 10px;

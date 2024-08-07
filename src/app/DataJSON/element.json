@@ -214,6 +214,11 @@
       "value": "Catelog"
     },
     "content": {
+      "mockValue": {
+        "id": "",
+        "title": "",
+        "image": ""
+      },
       "value": [
         {
           "id": 1,
@@ -222,8 +227,28 @@
         },
         {
           "id": 2,
-          "title": "Indian Saree",
+          "title": "Indian Kurti",
           "image": "/assets/catelog-2.png"
+        },
+        {
+          "id": 3,
+          "title": "Skirts & Jacket",
+          "image": "/assets/catelog-3.png"
+        },
+        {
+          "id": 4,
+          "title": "Traditional Dress",
+          "image": "/assets/catelog-4.png"
+        },
+        {
+          "id": 5,
+          "title": "Women’s T-shirts",
+          "image": "/assets/catelog-5.png"
+        },
+        {
+          "id": 6,
+          "title": "T-shirts & Jeans",
+          "image": "/assets/catelog-6.png"
         }
       ]
     }
@@ -233,60 +258,76 @@
       "value": "Trending of the week"
     },
     "content": {
+      "mockValue": {
+        "id": "",
+        "title": "",
+        "description": "",
+        "interest": "",
+        "price": "",
+        "discount": "",
+        "btn": "",
+        "image": ""
+      },
       "value": [
         {
           "id": 1,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         },
         {
           "id": 2,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         },
         {
           "id": 3,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         },
         {
           "id": 4,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         },
         {
           "id": 5,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         },
         {
           "id": 6,
           "title": "Wearable Black Jacket",
-          "description": "Premium quality jacket with_unique coincept",
+          "description": "Premium quality jacket with unique coincept",
           "interest": "28 People shown interest",
           "price": "899",
           "discount": "28",
-          "image": "/assets/trendingimage-1.png"
+          "image": "/assets/trendingimage-1.png",
+          "btn": "Quote Now"
         }
       ]
     }
@@ -296,32 +337,39 @@
       "value": "Popular Collection"
     },
     "content": {
+      "mockValue": {
+        "id": "",
+        "title": "",
+        "image": "",
+        "price": "",
+        "btn": ""
+      },
       "value": [
         {
           "id": 1,
           "image": "/assets/image-1.png",
-          "title": "Wearable Men's_Black T-shirt",
+          "title": "Wearable Men's Black T-shirt",
           "price": 899,
           "btn": "Quote Now"
         },
         {
           "id": 2,
           "image": "/assets/image-1.png",
-          "title": "Wearable Men's_Black T-shirt",
+          "title": "Wearable Men's Black T-shirt",
           "price": 899,
           "btn": "Quote Now"
         },
         {
           "id": 3,
           "image": "/assets/image-1.png",
-          "title": "Wearable Men's_Black T-shirt",
+          "title": "Wearable Men's Black T-shirt",
           "price": 899,
           "btn": "Quote Now"
         },
         {
           "id": 4,
           "image": "/assets/image-1.png",
-          "title": "Wearable Men's_Black T-shirt",
+          "title": "Wearable Men's Black T-shirt",
           "price": 899,
           "btn": "Quote Now"
         }
@@ -335,14 +383,53 @@
     "paragraph": {
       "value": "Lorem ipsum dolor sit amet consectetur_adipisicing elit. Maxime mollitia, molestiae quas vel"
     },
-    "mail": {
-      "value": "Example@sample.com"
+    "content": {
+      "value": [
+        {
+          "id": 1,
+          "value": "/assets/whatsapp.png",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "value": "/assets/instagram.png",
+          "href": "#"
+        },
+        {
+          "id": 3,
+          "value": "/assets/facebook.png",
+          "href": "#"
+        },
+        {
+          "id": 4,
+          "value": "/assets/youtube.png",
+          "href": "#"
+        },
+        {
+          "id": 5,
+          "value": "/assets/meesho.png",
+          "href": "#"
+        }
+      ]
     },
-    "phone": {
-      "value": "+91 6452013456"
-    },
-    "titlepara": {
-      "value": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    "contact": {
+      "value": [
+        {
+          "id": 1,
+          "image": "/assets/email.png",
+          "text": "Example@sample.com"
+        },
+        {
+          "id": 1,
+          "image": "/assets/phone.png",
+          "text": "+91 6452013456"
+        },
+        {
+          "id": 1,
+          "image": "/assets/location.png",
+          "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        }
+      ]
     }
   }
 }
