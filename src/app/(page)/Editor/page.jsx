@@ -176,7 +176,7 @@ const EditorPage = () => {
                         ? URL.createObjectURL(file)
                         : defaultValueOfCurrentSetting.find(
                             (v) => v.id === setting.elementBindingId
-                          )[setting?.bindingKey ? "value" : null],
+                          )[setting?.bindingKey ?? "value" ],
                     }
                   );
                 }
@@ -223,95 +223,111 @@ const EditorPage = () => {
             {setting.props.value.map((loopSetting, index) => {
               if (loopSetting?.hasMultipleSettings) {
                 return (
-                  <div className={styles.childsetting}>
-                    {loopSetting.hasMultipleSettings.map(
-                      (childSetting, index) => {
-                        return getSettingComponent(
-                          {
-                            ...loopSetting,
-                            ...childSetting,
-                            props: {
-                              ...childSetting.props,
-                              value:
-                                loopSetting.props.value[
-                                  childSetting.bindingKey
-                                ],
+                  <React.Fragment>
+                    {currentSetting?.elements[sectionKey]?.title ===
+                    "Footer" ? (
+                      <label className={styles.child_label}>
+                        {index === 0 ? (
+                          <strong>{setting.props.lable} :</strong>
+                        ) : null}
+                      </label>
+                    ) : null}
+                    <div className={styles.childsetting}>
+                      {loopSetting.hasMultipleSettings.map(
+                        (childSetting, index) => {
+                          return getSettingComponent(
+                            {
+                              ...loopSetting,
+                              ...childSetting,
+                              props: {
+                                ...childSetting.props,
+                                value:
+                                  loopSetting.props.value[
+                                    childSetting.bindingKey
+                                  ],
+                              },
+                              originId: loopSetting.id,
+                              bindingId: setting.bindingId,
+                              componentId: setting.componentId,
                             },
-                            originId: loopSetting.id,
-                            bindingId: setting.bindingId,
-                            componentId: setting.componentId,
-                          },
-                          sectionKey,
-                          `${index}-loop_setting-${loopSetting.id}-${childSetting.type}`,
-                          (updatedSettingValue, updatedElementvalue) => {
-                            if (!updatedSettingValue || !updatedElementvalue) {
-                              return null;
-                            }
+                            sectionKey,
+                            `${index}-loop_setting-${loopSetting.id}-${childSetting.type}`,
+                            (updatedSettingValue, updatedElementvalue) => {
+                              if (
+                                !updatedSettingValue ||
+                                !updatedElementvalue
+                              ) {
+                                return null;
+                              }
 
-                            return {
-                              settingsData: setting.props.value.map((ls) => {
-                                if (ls.id === loopSetting.id) {
-                                  return {
-                                    ...ls,
-                                    props: {
-                                      ...ls.props,
-                                      value: {
-                                        ...ls.props.value,
-                                        [childSetting.bindingKey]:
-                                          updatedSettingValue?.value ?? null,
+                              return {
+                                settingsData: setting.props.value.map((ls) => {
+                                  if (ls.id === loopSetting.id) {
+                                    return {
+                                      ...ls,
+                                      props: {
+                                        ...ls.props,
+                                        value: {
+                                          ...ls.props.value,
+                                          [childSetting.bindingKey]:
+                                            updatedSettingValue?.value ?? null,
+                                        },
+                                        ...(updatedSettingValue?.data && {
+                                          data: updatedSettingValue?.data,
+                                        }),
                                       },
-                                      ...(updatedSettingValue?.data && {
-                                        data: updatedSettingValue?.data,
-                                      }),
-                                    },
-                                  };
-                                }
+                                    };
+                                  }
 
-                                return ls;
-                              }),
-                              elementsData: currentElemenetsData[
-                                setting.componentId
-                              ][setting.bindingId].value.map((element) => {
-                                if (
-                                  element.id === loopSetting.elementBindingId
-                                ) {
-                                  return {
-                                    ...element,
-                                    [childSetting.bindingKey]:
-                                      updatedElementvalue?.value,
-                                  };
-                                }
+                                  return ls;
+                                }),
+                                elementsData: currentElemenetsData[
+                                  setting.componentId
+                                ][setting.bindingId].value.map((element) => {
+                                  if (
+                                    element.id === loopSetting.elementBindingId
+                                  ) {
+                                    return {
+                                      ...element,
+                                      [childSetting.bindingKey]:
+                                        updatedElementvalue?.value,
+                                    };
+                                  }
 
-                                return element;
+                                  return element;
+                                }),
+                              };
+                            }
+                          );
+                        }
+                      )}
+                      {currentSetting?.elements[sectionKey]?.title !==
+                      "Footer" ? (
+                        <span
+                          className={styles.close_btn}
+                          type="reset"
+                          onClick={() => {
+                            UpdatedAddInput(
+                              loopSetting,
+                              sectionKey,
+                              (setting.props.value ?? []).filter((sv) => {
+                                return sv.id !== loopSetting.id;
                               }),
-                            };
-                          }
-                        );
-                      }
-                    )}
-                    <span
-                      className={styles.close_btn}
-                      type="reset"
-                      onClick={() => {
-                        UpdatedAddInput(
-                          loopSetting,
-                          sectionKey,
-                          (setting.props.value ?? []).filter((sv) => {
-                            return sv.id !== loopSetting.id;
-                          }),
-                          currentElemenetsData[setting.componentId][
-                            setting.bindingId
-                          ].value.filter(
-                            (cv) => cv.id !== loopSetting.elementBindingId
-                          ),
-                          true,
-                          true
-                        );
-                      }}
-                    >
-                      x
-                    </span>
-                  </div>
+                              currentElemenetsData[setting.componentId][
+                                setting.bindingId
+                              ].value.filter(
+                                (cv) => cv.id !== loopSetting.elementBindingId
+                              ),
+                              true,
+                              true
+                            );
+                          }}
+                        >
+                          x
+                        </span>
+                      ) : null}
+                    </div>
+                  </React.Fragment>
                 );
               }
 
@@ -320,6 +336,7 @@ const EditorPage = () => {
                   {getSettingComponent(
                     {
                       ...loopSetting,
+                      ...setting.props.label,
                       originId: loopSetting.id,
                       bindingId: setting.bindingId,
                       componentId: setting.componentId,
@@ -579,7 +596,7 @@ const EditorPage = () => {
                         />
                       </span>
                       <span
-                        className={styles.closebtn}
+                        className={styles.close_btn}
                         type="reset"
                         onClick={() => {
                           UpdatedAddInput(
@@ -662,7 +679,7 @@ const EditorPage = () => {
                         defaultValueOfCurrentSetting.find(
                           (contentValue) =>
                             contentValue.id === setting.elementBindingId
-                        )[setting?.bindingKey ?? "value"],
+                        )[setting?.bindingKey ?? "value" ],
                     }
                   );
 

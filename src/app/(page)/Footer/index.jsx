@@ -2,10 +2,6 @@ import Grid from "@/app/component/Grid";
 import React, { useContext } from "react";
 import styles from "./style.module.scss";
 import { TemplateContext } from "@/app/context/TemplateContext";
-import Link from "next/link";
-import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
-import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
-import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import IMG from "@/app/component/Img";
 
 const Footer = () => {
@@ -18,7 +14,7 @@ const Footer = () => {
           sm={12}
           md={12}
           lg={6}
-          xl={8}
+          xl={7}
           itemClass={styles.footer_wrapper_col_1}
         >
           <h1>{footer.title.value}</h1>
@@ -36,7 +32,7 @@ const Footer = () => {
                 className={styles.footer_wrapper_col_1_content_icon}
               >
                 <IMG
-                  src={item?.value}
+                  src={item?.image}
                   imageClasses={styles.imageclass}
                   useRawImgTag
                   containerClasses={styles.icon}
@@ -50,7 +46,7 @@ const Footer = () => {
           sm={12}
           md={12}
           lg={6}
-          xl={4}
+          xl={5}
           itemClass={styles.footer_wrapper_col_2}
         >
           <div className={styles.footer_wrapper_col_2_content}>

@@ -55,7 +55,6 @@
             height: 33px !important;
           }
         }
-        
       }
     }
   }
@@ -69,6 +68,7 @@
         height: 60px;
         .icon {
           height: 80px;
+          width: 80px;
           margin-right: 20px;
           padding: 16px 20px;
           background-color: #fff0d9;
@@ -84,12 +84,13 @@
           }
 
           .imageclass {
-            width: auto !important;
             background-color: $white-color;
             color: $primary-color;
             padding: 10px;
             font-size: 45px;
             border-radius: 8px;
+            height: 45px;
+            width: 45px;
           }
         }
         span {

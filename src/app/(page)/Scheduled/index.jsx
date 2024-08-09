@@ -56,7 +56,7 @@ const Sheduled = () => {
               <div className={styles.content_box} key={index}>
                 <div className={styles.content_box_title}>
                   <h4>{item?.title}</h4>
-                  {item?.img && <IMG src="/assets/Vector.png" useRawImgTag />}
+                  <IMG src="/assets/Vector.png" useRawImgTag />
                 </div>
                 <div className={styles.content_box_time}>
                   {item?.value?.map((items, index) => (

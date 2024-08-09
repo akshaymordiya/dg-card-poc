@@ -1,168 +1,324 @@
-
-  {
-    "catelog": {
-    "title": {
-      "value": "Catelog"
+"props": {
+  "value": [
+    {
+      "id": "catelog-item_content_1",
+      "parentId": "catelog-item",
+      "hasMultipleSettings": [
+        {
+          "type": "input-file",
+          "props": {
+            "type": "file",
+            "placeholder": "Upload File",
+            "required": true,
+            "label": "Select Image"
+          },
+          "bindingKey": "image"
+        },
+        {
+          "type": "input",
+          "props": {
+            "type": "text",
+            "placeholder": "Enter text",
+            "required": true,
+            "label": "Title"
+          },
+          "bindingKey": "title"
+        }
+      ],
+      "props": {
+        "value": {
+          "elementId": 1,
+          "image": null,
+          "title": null
+        }
+      },
+      "elementBindingId": 1
     },
-    "content": {
+    {
+      "id": "scheduled-dropdown_monday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+         
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Monday"
+      },
+      "elementBindingId": 1
+    },
+    {
+      "id": "scheduled-dropdown_tuesday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Tuesday"
+      },
+      "elementBindingId": 2
+    },
+    {
+      "id": "scheduled-dropdown_wednesday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Wednesday"
+      },
+      "elementBindingId": 3
+    },
+    {
+      "id": "scheduled-dropdown_thursday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Thursday"
+      },
+      "elementBindingId": 4
+    },
+    {
+      "id": "scheduled-dropdown_friday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Friday"
+      },
+      "elementBindingId": 5
+    },
+    {
+      "id": "scheduled-dropdown_saturday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Saturday"
+      },
+      "elementBindingId": 6
+    },
+    {
+      "id": "scheduled-dropdown_sunday",
+      "parentId": "scheduled-dropdown",
+      "type": "timeValue",
+      "props": {
+        "type": "text",
+        "value": [
+          {
+            "from": null,
+            "to": null,
+            "elementId": 1
+          },
+          {
+            "from": null,
+            "to": null,
+            "elementId": 2
+          }
+        ],
+        "placeholder": "Enter text",
+        "required": true,
+        "label": "Sunday"
+      },
+      "elementBindingId": 7
+    }
+  ]
+},
+
+
+
+
+
+
+"content": {
       "value": [
         {
           "id": 1,
+          "title": "Monday",
           "value": [
             {
-              "image": "/assets/catelog-1.png",
+              "from": "7:00am",
+              "to": "1:00pm",
               "id": 1
             },
             {
-              "text": "Indian Saree",
+              "from": "2:00pm",
+              "to": "10:20pm",
               "id": 2
             }
           ]
         },
         {
           "id": 2,
-          "value": "/assets/catelog-2.png",
-          "title": "Indian Kurti"
+          "title": "Tuesday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 3,
-          "value": "/assets/catelog-3.png",
-          "title": "Skirts & Jacket"
+          "title": "Wednesday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 4,
-          "value": "/assets/catelog-4.png",
-          "title": "Traditional Dress"
+          "title": "Thursday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 5,
-          "value": "/assets/catelog-5.png",
-          "title": "Women’s T-shirts"
+          "title": "Friday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         },
         {
           "id": 6,
-          "value": "/assets/catelog-6.png",
-          "title": "T-shirts & Jeans"
+          "title": "Saturday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Sunday",
+          "value": [
+            {
+              "from": "7:00am",
+              "to": "1:00pm",
+              "id": 1
+            },
+            {
+              "from": "2:00pm",
+              "to": "10:20pm",
+              "id": 2
+            }
+          ]
         }
       ]
-    }
-  },
-  {
-    "elementId": 1,
-    "type": "input-file",
-    "props": {
-      "type": "file",
-      "placeholder": "upload file",
-      "image": null,
-      "required": true
-    }
-  },
-  {
-    "elementId": 2,
-    "type": "input",
-    "props": {
-      "type": "text",
-      "placeholder": "Enter text",
-      "title": null,
-      "required": true
-    }
-  }
-
-
-
-  "trending" :{
-    "title":"Trending",
-    "settings":[
-     {
-       "id":"trending-item",
-         "type": "loop",
-         "props": {
-           "value":[
-             {
-               "id": "trending-item_1",
-               "parentId": "trending-item",
-                "type":"",
-                "props": {
-                 "value": [
-                    {
-                      "id": 1,
-                      "item": [
-                        {
-                          "elementId": 1,
-                          "type": "file",
-                          "image": null
-                        },
-                        {
-                          "elementId": 2,
-                          "type": "text",
-                          "title": null
-                        },
-                        {
-                          "elementId": 3,
-                          "type": "text",
-                          "price": null
-                        }
-                      ]
-                    },
-                  ]
-                 }  
-                } 
-           ]     
-             }
-           
-         }
-        ]
-     }
-    
-
-
-     {
-      "type": "input",
-      "props": {
-        "type": "text",
-        "placeholder": "Enter text",
-        "required": true,
-        "label": "Item - 2"
-      },
-      "bindingKey": "description"
-    },
-    {
-      "type": "input",
-      "props": {
-        "type": "text",
-        "placeholder": "Enter text",
-        "required": true,
-        "label": "Item - 3"
-      },
-      "bindingKey": "interest"
-    },
-    {
-      "type": "input",
-      "props": {
-        "type": "text",
-        "placeholder": "Enter text",
-        "required": true,
-        "label": "Item - 4"
-      },
-      "bindingKey": "price"
-    },
-    {
-      "type": "input",
-      "props": {
-        "type": "text",
-        "placeholder": "Enter text",
-        "required": true,
-        "label": "Item - 4"
-      },
-      "bindingKey": "discount"
-    },
-    {
-      "type": "input-file",
-      "props": {
-        "type": "file",
-        "placeholder": "Upload File",
-        "required": true,
-        "label": "Item - 5"
-      },
-      "bindingKey": "image"
     }

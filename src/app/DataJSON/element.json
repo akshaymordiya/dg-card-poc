@@ -99,14 +99,9 @@
           "title": "Monday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -115,14 +110,9 @@
           "title": "Tuesday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -131,14 +121,9 @@
           "title": "Wednesday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -147,14 +132,9 @@
           "title": "Thursday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -163,14 +143,9 @@
           "title": "Friday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -179,14 +154,9 @@
           "title": "Saturday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         },
@@ -195,14 +165,9 @@
           "title": "Sunday",
           "value": [
             {
-              "from": "7:00am",
-              "to": "1:00pm",
+              "from": "7:00 am",
+              "to": "1:00 pm",
               "id": 1
-            },
-            {
-              "from": "2:00pm",
-              "to": "10:20pm",
-              "id": 2
             }
           ]
         }
@@ -387,27 +352,27 @@
       "value": [
         {
           "id": 1,
-          "value": "/assets/whatsapp.png",
+          "image": "/assets/whatsapp.png",
           "href": "#"
         },
         {
           "id": 2,
-          "value": "/assets/instagram.png",
+          "image": "/assets/instagram.png",
           "href": "#"
         },
         {
           "id": 3,
-          "value": "/assets/facebook.png",
+          "image": "/assets/facebook.png",
           "href": "#"
         },
         {
           "id": 4,
-          "value": "/assets/youtube.png",
+          "image": "/assets/youtube.png",
           "href": "#"
         },
         {
           "id": 5,
-          "value": "/assets/meesho.png",
+          "image": "/assets/meesho.png",
           "href": "#"
         }
       ]
@@ -420,12 +385,12 @@
           "text": "Example@sample.com"
         },
         {
-          "id": 1,
+          "id": 2,
           "image": "/assets/phone.png",
           "text": "+91 6452013456"
         },
         {
-          "id": 1,
+          "id": 3,
           "image": "/assets/location.png",
           "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
         }

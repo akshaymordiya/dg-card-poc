@@ -342,17 +342,11 @@
                 "parentId": "scheduled-dropdown",
                 "type": "timeValue",
                 "props": {
-                  "type": "text",
                   "value": [
                     {
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -372,11 +366,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -396,11 +385,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -420,11 +404,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -444,11 +423,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -468,11 +442,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -492,11 +461,6 @@
                       "from": null,
                       "to": null,
                       "elementId": 1
-                    },
-                    {
-                      "from": null,
-                      "to": null,
-                      "elementId": 2
                     }
                   ],
                   "placeholder": "Enter text",
@@ -694,7 +658,7 @@
               {
                 "id": "catelog-item_content_5",
                 "parentId": "catelog-item",
-               "hasMultipleSettings": [
+                "hasMultipleSettings": [
                   {
                     "type": "input-file",
                     "props": {
@@ -774,7 +738,7 @@
           "id": "trending-item",
           "type": "loop",
           "props": {
-            "mockValue":{
+            "mockValue": {
               "id": "trending-item_content_1",
               "parentId": "trending-item",
               "hasMultipleSettings": [
@@ -857,7 +821,7 @@
                   "interest": null,
                   "price": null,
                   "discount": null,
-                  "btn":null,
+                  "btn": null,
                   "image": null
                 }
               },
@@ -947,7 +911,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1036,7 +1000,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1125,7 +1089,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1214,7 +1178,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1303,7 +1267,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1392,7 +1356,7 @@
                     "interest": null,
                     "price": null,
                     "discount": null,
-                    "btn" : null,
+                    "btn": null,
                     "image": null
                   }
                 },
@@ -1413,7 +1377,7 @@
           "id": "collection-item",
           "type": "loop",
           "props": {
-            "mockValue":{
+            "mockValue": {
               "id": "collection-item_content_1",
               "parentId": "collection-item",
               "hasMultipleSettings": [
@@ -1457,7 +1421,7 @@
                   },
                   "bindingKey": "btn"
                 }
-              ],  
+              ],
               "props": {
                 "value": {
                   "elementId": 1,
@@ -1735,19 +1699,40 @@
           "id": "footer-social_icon_btns",
           "type": "loop",
           "props": {
+            "lable": "Social Media Icon",
             "value": [
               {
                 "id": "footer-social_icon_whatsapp",
                 "type": "input-file",
                 "parentId": "footer-social_icon_btns",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "target": "_blank",
+                      "label": "Icon link"
+                    },
+                    "bindingKey": "href"
+                  }
+                ],
                 "props": {
-                  "type": "file",
-                  "placeholder": "Upload whatsappIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Whatsapp Icon"
+                  "value": {
+                    "image": null,
+                    "href": null
+                  }
                 },
                 "elementBindingId": 1
               },
@@ -1755,14 +1740,34 @@
                 "id": "footer-social_icon_instagram",
                 "type": "input-file",
                 "parentId": "footer-social_icon_btns",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "value"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "target": "_blank",
+                      "label": "Icon link"
+                    },
+                    "bindingKey": "href"
+                  }
+                ],
                 "props": {
-                  "type": "file",
-                  "placeholder": "Upload InstagramIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Instagram Icon"
+                  "value": {
+                    "image": null,
+                    "href": null
+                  }
                 },
                 "elementBindingId": 2
               },
@@ -1770,14 +1775,34 @@
                 "id": "footer-social_icon_facebook",
                 "type": "input-file",
                 "parentId": "footer-social_icon_btns",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "target": "_blank",
+                      "label": "Icon link"
+                    },
+                    "bindingKey": "href"
+                  }
+                ],
                 "props": {
-                  "type": "file",
-                  "placeholder": "Upload FacebookIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Facebook Icon"
+                  "value": {
+                    "image": null,
+                    "href": null
+                  }
                 },
                 "elementBindingId": 3
               },
@@ -1785,14 +1810,34 @@
                 "id": "footer-social_icon_youtube",
                 "type": "input-file",
                 "parentId": "footer-social_icon_btns",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "target": "_blank",
+                      "label": "Icon link"
+                    },
+                    "bindingKey": "href"
+                  }
+                ],
                 "props": {
-                  "type": "file",
-                  "placeholder": "Upload YoutubeIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Youtube Icon"
+                  "value": {
+                    "image": null,
+                    "href": null
+                  }
                 },
                 "elementBindingId": 4
               },
@@ -1800,14 +1845,34 @@
                 "id": "footer-social_icon_meesho",
                 "type": "input-file",
                 "parentId": "footer-social_icon_btns",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "target": "_blank",
+                      "label": "Icon link"
+                    },
+                    "bindingKey": "href"
+                  }
+                ],
                 "props": {
-                  "type": "file",
-                  "placeholder": "Upload MeeshoIcon",
-                  "isLink": true,
-                  "href": "#",
-                  "value": null,
-                  "required": true,
-                  "label": "Meesho Icon"
+                  "value": {
+                    "image": null,
+                    "href": null
+                  }
                 },
                 "elementBindingId": 5
               }
@@ -1817,42 +1882,116 @@
           "componentId": "footer"
         },
         {
-          "id": "footer-mail-text",
-          "type": "input",
+          "id": "footer-content_info",
+          "type": "loop",
           "props": {
-            "type": "text",
-            "placeholder": "Enter text",
-            "value": "",
-            "required": true,
-            "label": "Footer Mail Id"
+            "lable": "Contact Info",
+            "value": [
+              {
+                "id": "footer-content_info_1",
+                "type": "input-file",
+                "parentId": "footer-content_info",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Contact Info"
+                    },
+                    "bindingKey": "text"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "image": null,
+                    "text": null
+                  }
+                },
+                "elementBindingId": 1
+              },
+              {
+                "id": "footer-content_info_2",
+                "type": "input-file",
+                "parentId": "footer-content_info",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Contact Info"
+                    },
+                    "bindingKey": "text"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "image": null,
+                    "text": null
+                  }
+                },
+                "elementBindingId": 2
+              },
+              {
+                "id": "footer-content_info_3",
+                "type": "input-file",
+                "parentId": "footer-content_info",
+                "hasMultipleSettings": [
+                  {
+                    "type": "input-file",
+                    "props": {
+                      "type": "file",
+                      "placeholder": "Upload File",
+                      "required": true,
+                      "label": "Select Image"
+                    },
+                    "bindingKey": "image"
+                  },
+                  {
+                    "type": "input",
+                    "props": {
+                      "type": "text",
+                      "placeholder": "Enter text",
+                      "required": true,
+                      "label": "Contact Info"
+                    },
+                    "bindingKey": "text"
+                  }
+                ],
+                "props": {
+                  "value": {
+                    "image": null,
+                    "text": null
+                  }
+                },
+                "elementBindingId": 3
+              }
+            ]
           },
-          "bindingId": "mail",
-          "componentId": "footer"
-        },
-        {
-          "id": "footer-phone-text",
-          "type": "input",
-          "props": {
-            "type": "text",
-            "placeholder": "Enter text",
-            "value": "",
-            "required": true,
-            "label": "Footer Phone no."
-          },
-          "bindingId": "phone",
-          "componentId": "footer"
-        },
-        {
-          "id": "footer-titlepara-text",
-          "type": "input",
-          "props": {
-            "type": "text",
-            "placeholder": "Enter text",
-            "value": "",
-            "required": true,
-            "label": "Footer Paragraph"
-          },
-          "bindingId": "titlepara",
+          "bindingId": "contact",
           "componentId": "footer"
         }
       ]
